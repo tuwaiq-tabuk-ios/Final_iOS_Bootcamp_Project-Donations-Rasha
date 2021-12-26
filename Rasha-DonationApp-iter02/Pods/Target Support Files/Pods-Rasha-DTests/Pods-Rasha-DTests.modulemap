@@ -1,0 +1,6 @@
+framework module Pods_Rasha_DTests {
+  umbrella header "Pods-Rasha-DTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

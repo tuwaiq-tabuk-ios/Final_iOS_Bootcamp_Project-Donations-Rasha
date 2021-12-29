@@ -15,7 +15,7 @@ class ChatVC: UIViewController {
     
     var item : Item?
     var messages = [Message]()
-    
+    var user : ChatUser?
     
     @IBOutlet weak var chatTabelView: UITableView!
     
@@ -23,10 +23,16 @@ class ChatVC: UIViewController {
     
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         messageTextView.layer.cornerRadius = 10
         messageTextView.delegate = self
         
@@ -102,6 +108,13 @@ class ChatVC: UIViewController {
             }
         }
     }
+    
+    
+    
+    
+    
+    
+    
 }
 
 extension ChatVC : UITableViewDelegate , UITableViewDataSource {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class itemDetailVC: UIViewController {
     
@@ -61,6 +62,11 @@ class itemDetailVC: UIViewController {
             userNameLabel.text = item.username
             dateLabel.text = item.date
             directMessageButton.setTitle("Direct Message With \(item.username!)", for: .normal)
+            guard let userId = Auth.auth().currentUser?.uid else {return}
+                if item.userID == userId {
+                    directMessageButton.isHidden = true
+                
+            }
         }
         
     }
@@ -77,3 +83,5 @@ class itemDetailVC: UIViewController {
     
     
 }
+
+

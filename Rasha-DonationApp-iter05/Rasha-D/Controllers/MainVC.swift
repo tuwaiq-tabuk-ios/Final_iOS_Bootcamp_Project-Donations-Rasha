@@ -32,6 +32,22 @@ class MainVC : UIViewController   {
         searchBar.delegate = self
         
         getItemsData()
+        
+        
+        // just for test
+        guard let userID = Auth.auth().currentUser?.uid else {return}
+        Firestore.firestore().collection("Users").document(userID).getDocument { snapshot, error in
+            if error == nil {
+                if let value = snapshot?.data() {
+                    if let name = value["name"] as? String {
+                        self.navigationItem.title = name
+                        
+                    }
+                }
+            }
+        }
+        
+        
     }
     
     @IBAction func exetButtonAction(_ sender: UIBarButtonItem) {
@@ -62,10 +78,18 @@ class MainVC : UIViewController   {
                         let imageUrl = data["imageUrl"] as? String
                         let description = data["description"] as? String
                         let userID = data ["userID"] as? String
-                        self.items.append(Item(description: description, city: city, title: title, imageUrl: imageUrl, date: date, username: username, userID: userID))
+                        let timestamp = data["timestamp"] as? TimeInterval
+                        
+                        
+                        self.items.append(Item(description: description, city: city, title: title, imageUrl: imageUrl, date: date, username: username, userID: userID, timestamp: timestamp))
                     }
                 }
             }
+            
+            
+            
+//            self.items = self.items.sorted(by: {$0.timestamp! > $1.timestamp!})
+            
             self.itemsTableView.reloadData()
         }
     }

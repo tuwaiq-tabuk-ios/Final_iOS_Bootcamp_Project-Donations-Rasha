@@ -14,6 +14,7 @@ struct Item {
     var date : String?
     var username : String?
     var userID : String?
+    var timestamp : TimeInterval?
 }
 
 struct Message {
@@ -23,4 +24,9 @@ struct Message {
     var date : String?
     var timestamp : TimeInterval?
     var time : String?
+}
+
+struct ChatUser {
+    var name : String?
+    var id : String?
 }

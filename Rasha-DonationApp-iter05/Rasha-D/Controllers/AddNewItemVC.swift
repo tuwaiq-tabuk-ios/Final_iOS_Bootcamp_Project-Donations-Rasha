@@ -23,12 +23,21 @@ class AddNewItemVC: UIViewController  {
     @IBOutlet weak var loadingSpinner: UIActivityIndicatorView!
     
     
+    @IBOutlet weak var cityNameButton: UIButton!
     @IBOutlet weak var itemImageViewTop: NSLayoutConstraint!
     
+    
+    
+    
     @IBOutlet weak var textViewHeight: NSLayoutConstraint!
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        cityTextFild.isHidden = true
         
         settingUpKeyboardNotifications()
         
@@ -37,7 +46,22 @@ class AddNewItemVC: UIViewController  {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageAction))
         itemImageView.addGestureRecognizer(tapGesture)
         
+        
     }
+    
+    @IBAction func cityButtonAction(_ sender: Any) {
+        
+       
+        performSegue(withIdentifier: "showCities", sender: nil)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCities" {
+            let destination = segue.destination as! citiesAndCategoriesVC
+                destination.delegate = self
+        }
+    }
+    
     
     var imageSuccess = false
     var ttitleSuccess = false
@@ -88,6 +112,7 @@ class AddNewItemVC: UIViewController  {
             
             let  storageRef = Storage.storage().reference().child(UUID().uuidString)
             guard let itemImageData = itemImageView.image?.pngData() else {return}
+            let timestamp = String(Date().timeIntervalSince1970)
             storageRef.putData(itemImageData, metadata: nil) { meta, error in
                 if error == nil {
                     storageRef.downloadURL { [self] url, error in
@@ -100,7 +125,8 @@ class AddNewItemVC: UIViewController  {
                                 "description" : descriptionTextView.text!,
                                 "username" : userName,
                                 "date" : currentDate,
-                                "userID" : userID
+                                "userID" : userID ,
+                                "timestamp" : timestamp
                             ]) { error in
                                 if error == nil {
                                     //return to ItemsTableView
@@ -184,4 +210,16 @@ extension AddNewItemVC {
             self.view.layoutIfNeeded()
         }
     }
+}
+extension AddNewItemVC : citiesAndCategoriesVCDelegate {
+    func citySelected(cityName: String) {
+        cityNameButton.setTitle(cityName, for: .normal)
+        if cityName == "other" {
+            cityTextFild.isHidden = false
+        }
+        cityTextFild.text = cityName
+        print(cityTextFild.text)
+    }
+ 
+
 }

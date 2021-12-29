@@ -11,11 +11,9 @@ import Firebase
 class SignInVC: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
-    
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var signInButton: UIButton!
+    
     var emaileSuccess = false
     var passwoordSuccess = false
     
@@ -74,6 +72,9 @@ class SignInVC: UIViewController {
         passwordTextField.layer.cornerRadius = 20
         signInButton.layer.cornerRadius = 20
         
+//        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+//        emailTextField.leftView = paddingView
+//        emailTextField.leftViewMode = .always
     }
     
     

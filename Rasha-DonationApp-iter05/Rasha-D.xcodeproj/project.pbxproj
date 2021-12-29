@@ -10,6 +10,7 @@
 		62711273FFA29F3A8D10D8AB /* Pods_Rasha_D_Rasha_DUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A877675D0390571E428DE14A /* Pods_Rasha_D_Rasha_DUITests.framework */; };
 		9EC7B2ADFB1D37C82B9FBE7B /* Pods_Rasha_DTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD98E64762CB7C94C1058533 /* Pods_Rasha_DTests.framework */; };
 		D654188201411D2B0F999A71 /* Pods_Rasha_D.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 806A73B997BBA85E715A1349 /* Pods_Rasha_D.framework */; };
+		DA14B60E277B2C4A007A4620 /* citiesAndCategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14B60D277B2C4A007A4620 /* citiesAndCategoriesVC.swift */; };
 		DA174DAE2779E45200F86646 /* ResentChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA174DAC2779E45200F86646 /* ResentChatCell.swift */; };
 		DA174DAF2779E45200F86646 /* ResentChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA174DAD2779E45200F86646 /* ResentChatCell.xib */; };
 		DA174DB12779E77D00F86646 /* ResentChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA174DB02779E77D00F86646 /* ResentChatVC.swift */; };
@@ -64,6 +65,7 @@
 		BD98E64762CB7C94C1058533 /* Pods_Rasha_DTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rasha_DTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95305119AD483853EF14B9A /* Pods-Rasha-D-Rasha-DUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rasha-D-Rasha-DUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rasha-D-Rasha-DUITests/Pods-Rasha-D-Rasha-DUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D759F2FCA4642500335DE587 /* Pods-Rasha-DTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rasha-DTests.debug.xcconfig"; path = "Target Support Files/Pods-Rasha-DTests/Pods-Rasha-DTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA14B60D277B2C4A007A4620 /* citiesAndCategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = citiesAndCategoriesVC.swift; sourceTree = "<group>"; };
 		DA174DAC2779E45200F86646 /* ResentChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResentChatCell.swift; sourceTree = "<group>"; };
 		DA174DAD2779E45200F86646 /* ResentChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResentChatCell.xib; sourceTree = "<group>"; };
 		DA174DB02779E77D00F86646 /* ResentChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResentChatVC.swift; sourceTree = "<group>"; };
@@ -150,8 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				DA8092FC2768F82F0050F394 /* Main.storyboard */,
-				DA174DAC2779E45200F86646 /* ResentChatCell.swift */,
-				DA174DB02779E77D00F86646 /* ResentChatVC.swift */,
 				DA174DAD2779E45200F86646 /* ResentChatCell.xib */,
 				DA257F08276E2D210065E4F5 /* ItemCell.xib */,
 				DA68C8B42778A67D007814D7 /* ChatCell.xib */,
@@ -170,6 +170,9 @@
 		DA6B8AEA2771077E00DA69D4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DA14B60D277B2C4A007A4620 /* citiesAndCategoriesVC.swift */,
+				DA174DB02779E77D00F86646 /* ResentChatVC.swift */,
+				DA174DAC2779E45200F86646 /* ResentChatCell.swift */,
 				DA8092FA2768F82F0050F394 /* SignInVC.swift */,
 				DA80932B2768FD600050F394 /* SignUpVC.swift */,
 				DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */,
@@ -491,6 +494,7 @@
 				DA8092F72768F82F0050F394 /* AppDelegate.swift in Sources */,
 				DA8093012768F82F0050F394 /* Rasha_D.xcdatamodeld in Sources */,
 				DA6B8AE82770E3B700DA69D4 /* Model.swift in Sources */,
+				DA14B60E277B2C4A007A4620 /* citiesAndCategoriesVC.swift in Sources */,
 				DA257F09276E2D210065E4F5 /* ItemCell.swift in Sources */,
 				DA80932C2768FD600050F394 /* SignUpVC.swift in Sources */,
 				DA8092F92768F82F0050F394 /* SceneDelegate.swift in Sources */,

@@ -26,7 +26,7 @@
                                         <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="emile" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCl-x4-4Li">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="emile" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCl-x4-4Li">
                                         <rect key="frame" x="0.0" y="65" width="374" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -238,6 +238,64 @@
             </objects>
             <point key="canvasLocation" x="-428" y="2553"/>
         </scene>
+        <!--Cities And CategoriesVC-->
+        <scene sceneID="kii-gm-nKQ">
+            <objects>
+                <viewController storyboardIdentifier="cityAnsCategoryVC" id="Vw6-SY-vlb" customClass="citiesAndCategoriesVC" customModule="Rasha_D" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7pM-ma-bgD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Xj-Gz-hfc">
+                                <rect key="frame" x="30" y="298" width="354" height="300"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4Q-HQ-LPs">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="300"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="m4Q-HQ-LPs" secondAttribute="trailing" id="DOG-00-uY6"/>
+                                    <constraint firstAttribute="height" constant="300" id="Ghu-sg-AqM"/>
+                                    <constraint firstItem="m4Q-HQ-LPs" firstAttribute="leading" secondItem="5Xj-Gz-hfc" secondAttribute="leading" id="P3t-Qj-ljD"/>
+                                    <constraint firstItem="m4Q-HQ-LPs" firstAttribute="top" secondItem="5Xj-Gz-hfc" secondAttribute="top" id="q0T-3c-aSl"/>
+                                    <constraint firstAttribute="bottom" secondItem="m4Q-HQ-LPs" secondAttribute="bottom" id="x6U-n9-yxd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnm-hp-EcA">
+                                <rect key="frame" x="354" y="54" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5vm-os-lgf"/>
+                                    <constraint firstAttribute="width" constant="50" id="RC8-56-6Qo"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background" image="checkmark.circle.fill" catalog="system"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButtonAction:" destination="Vw6-SY-vlb" eventType="touchUpInside" id="uhI-Et-m3M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nc6-7m-GVn"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.56120653973509937" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Xj-Gz-hfc" firstAttribute="centerX" secondItem="7pM-ma-bgD" secondAttribute="centerX" id="8fK-3u-McC"/>
+                            <constraint firstItem="Nc6-7m-GVn" firstAttribute="trailing" secondItem="5Xj-Gz-hfc" secondAttribute="trailing" constant="30" id="9xq-FP-zct"/>
+                            <constraint firstItem="5Xj-Gz-hfc" firstAttribute="centerY" secondItem="7pM-ma-bgD" secondAttribute="centerY" id="C6Q-gB-kzi"/>
+                            <constraint firstItem="Nc6-7m-GVn" firstAttribute="trailing" secondItem="Rnm-hp-EcA" secondAttribute="trailing" constant="10" id="Nt0-9U-Kd2"/>
+                            <constraint firstItem="Rnm-hp-EcA" firstAttribute="top" secondItem="Nc6-7m-GVn" secondAttribute="top" constant="10" id="PoC-6C-qWe"/>
+                            <constraint firstItem="5Xj-Gz-hfc" firstAttribute="leading" secondItem="Nc6-7m-GVn" secondAttribute="leading" constant="30" id="hOs-Mh-18A"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="m4Q-HQ-LPs" id="vx4-Wh-lMf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eK1-46-PzE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-941" y="4366"/>
+        </scene>
         <!--Add New ItemVC-->
         <scene sceneID="xle-wV-wsn">
             <objects>
@@ -255,8 +313,20 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="300" verticalHuggingPriority="300" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PNm-WS-e6Y">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqd-KU-kAI">
                                         <rect key="frame" x="0.0" y="56" width="364" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.83007814489999998" green="0.83007814489999998" blue="0.83007814489999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="other City">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cityButtonAction:" destination="nwS-60-T0e" eventType="touchUpInside" id="ius-7m-Hiu"/>
+                                        </connections>
+                                    </button>
+                                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="300" verticalHuggingPriority="300" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PNm-WS-e6Y">
+                                        <rect key="frame" x="0.0" y="90" width="364" height="0.0"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -271,7 +341,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="6nW-BI-RFB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="6nW-BI-RFB"/>
                                     <constraint firstAttribute="height" constant="141" id="IaZ-Bd-PCp"/>
                                 </constraints>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -328,6 +398,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="OJu-7p-lYR"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cityNameButton" destination="sqd-KU-kAI" id="23U-Pe-KAl"/>
                         <outlet property="cityTextFild" destination="PNm-WS-e6Y" id="dCi-Q6-Wk1"/>
                         <outlet property="descriptionTextView" destination="7r5-p2-9Y6" id="pru-gK-B2b"/>
                         <outlet property="itemImageView" destination="Xj4-M5-EVA" id="aXB-bM-sEN"/>
@@ -335,6 +406,7 @@
                         <outlet property="loadingSpinner" destination="5Zo-bI-45d" id="GuQ-ku-iaX"/>
                         <outlet property="textViewHeight" destination="IaZ-Bd-PCp" id="b4y-uT-o6g"/>
                         <outlet property="titelTextFild" destination="yrc-UR-3Lr" id="fvH-Ue-WSv"/>
+                        <segue destination="Vw6-SY-vlb" kind="presentation" identifier="showCities" modalPresentationStyle="overFullScreen" id="LWf-Cm-K0Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7GD-LF-IR7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -652,6 +724,7 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="City" width="128" height="128"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="paperplane.circle.fill" catalog="system" width="128" height="121"/>

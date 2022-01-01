@@ -32,13 +32,6 @@ class itemDetailVC: UIViewController {
     var passedItem : Item?
     
     
-    
-    
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +69,7 @@ class itemDetailVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToChatVC" {
             let nextVC = segue.destination as! ChatVC
-            nextVC.item = passedItem
+            nextVC.user = ChatUser(name: passedItem?.username, id: passedItem?.userID)
             
         }
     }

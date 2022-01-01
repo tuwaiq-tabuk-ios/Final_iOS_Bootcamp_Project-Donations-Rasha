@@ -14,6 +14,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class SignUpVC: UIViewController {
         
         
         setupUI()
+        errorLabel.alpha = 0
         
         
         
@@ -62,6 +64,7 @@ class SignUpVC: UIViewController {
             
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { result, error in
                 if error == nil {
+                    self.errorLabel.alpha = 0
                     guard let userID = result?.user.uid else {return}
                     
                     Firestore.firestore().collection("Users").document(userID).setData([
@@ -79,7 +82,8 @@ class SignUpVC: UIViewController {
                         }
                     }
                 }else{
-                    print(error?.localizedDescription)
+                    self.errorLabel.alpha = 1
+                    self.errorLabel.text = error?.localizedDescription
                 }
             }
         }

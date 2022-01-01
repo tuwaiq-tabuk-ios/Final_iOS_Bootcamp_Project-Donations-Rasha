@@ -13,6 +13,7 @@ class SignInVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     var emaileSuccess = false
     var passwoordSuccess = false
@@ -20,6 +21,7 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SetupUI()
+        errorLabel.alpha = 0
         
         emailTextField.leftView?.frame = CGRect(x: 0, y: 0, width: emailTextField.frame.width - 20, height: emailTextField.frame.height)
     }
@@ -34,7 +36,9 @@ class SignInVC: UIViewController {
             emaileSuccess = false
             emailTextField.addShadow(shadowColor: .red)
         }
-        if let email = passwordTextField.text, email.isEmpty == false {
+        
+        
+        if let password = passwordTextField.text, password.isEmpty == false {
             passwoordSuccess = true
             passwordTextField.addShadow(shadowColor: .darkGray)
         } else {
@@ -46,16 +50,17 @@ class SignInVC: UIViewController {
         if emaileSuccess == true , passwoordSuccess == true {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { result, error in
                 if error == nil {
+                    self.errorLabel.alpha = 0
                     //go to mainVc
                     print("go to MainVC")
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
                     vc?.modalPresentationStyle = .fullScreen
                     vc?.modalTransitionStyle = .crossDissolve
                     self.present(vc!, animated: true, completion: nil)
-                }else {
+                } else {
                     //handle error by show error massage
-                    print("handel error by show error massage")
-                    print(error?.localizedDescription)
+                    self.errorLabel.alpha = 1
+                    self.errorLabel.text = error?.localizedDescription
                 }
             }
         }

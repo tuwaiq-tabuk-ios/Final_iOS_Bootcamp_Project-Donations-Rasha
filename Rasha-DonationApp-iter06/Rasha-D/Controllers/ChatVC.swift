@@ -13,7 +13,7 @@ import Firebase
 
 class ChatVC: UIViewController {
     
-    var item : Item?
+
     var messages = [Message]()
     var user : ChatUser?
     
@@ -28,6 +28,10 @@ class ChatVC: UIViewController {
         tabBarController?.tabBar.isHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
     
     
     override func viewDidLoad() {
@@ -37,7 +41,7 @@ class ChatVC: UIViewController {
         messageTextView.delegate = self
         
         
-        navigationItem.title = item?.username
+        navigationItem.title = user?.name
         chatTabelView.delegate = self
         chatTabelView.dataSource = self
         chatTabelView.register(UINib(nibName: "ChatCell", bundle: nil), forCellReuseIdentifier: "Cell")
@@ -49,7 +53,7 @@ class ChatVC: UIViewController {
     @IBAction func sendMessageButtonAction(_ sender: UIButton) {
         
         guard  let senderID = Auth.auth().currentUser?.uid else {return}
-        guard let recieverId = item?.userID else {return}
+        guard let recieverId = user?.id else {return}
         
         let formatter = DateFormatter()
         
@@ -61,11 +65,11 @@ class ChatVC: UIViewController {
         
         
         // add message timestamp
-        let timestamp = String(Date().timeIntervalSince1970)
+        let timestamp = Date().timeIntervalSince1970
         
         if let message = messageTextView.text, message.isEmpty == false {
             // send message
-            let message = ["sender" : senderID, "reciever" : recieverId , "date" : currentDate, "message" : message , "timestamp" : timestamp , "time" : currentTime]
+            let message : [String : Any] = ["sender" : senderID, "reciever" : recieverId , "date" : currentDate, "message" : message , "timestamp" : timestamp , "time" : currentTime]
             Firestore.firestore().collection("Messages").document(UUID().uuidString).setData(message) { error in
                 if error == nil {
                     print("Message Successfully sent")
@@ -83,7 +87,7 @@ class ChatVC: UIViewController {
     
     func getMessages() {
         guard let currentUserID = Auth.auth().currentUser?.uid else {return}
-        guard let userId = item?.userID else {return}
+        guard let userId = user?.id else {return}
         Firestore.firestore().collection("Messages").addSnapshotListener { snapshot, error in
             self.messages.removeAll()
             if let value = snapshot?.documents {
@@ -101,7 +105,7 @@ class ChatVC: UIViewController {
                     }
                     
                 }
-                //                self.messages = self.messages.sorted(by: {$0.timestamp! < $1.timestamp!})
+                self.messages = self.messages.sorted(by: {$0.timestamp! < $1.timestamp!})
                 self.chatTabelView.reloadData()
                 self.chatTabelView.scrollToBottomRow()
                 
@@ -132,6 +136,7 @@ extension ChatVC : UITableViewDelegate , UITableViewDataSource {
         if messages[indexPath.row].sender == Auth.auth().currentUser?.uid {
             cell.messageViewLeft.priority = .defaultLow
             cell.messageViewRight.priority = .defaultHigh
+            cell.timeLabel.textAlignment = .right
         }else {
             cell.messageViewLeft.priority = .defaultHigh
             cell.messageViewRight.priority = .defaultLow

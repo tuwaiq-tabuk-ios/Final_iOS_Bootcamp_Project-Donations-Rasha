@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import UIKit
 struct Item {
+    var id : String?
     var description : String?
     var city : String?
     var title : String?
@@ -15,6 +17,7 @@ struct Item {
     var username : String?
     var userID : String?
     var timestamp : TimeInterval?
+    var category : String?
 }
 
 struct Message {
@@ -29,4 +32,9 @@ struct Message {
 struct ChatUser {
     var name : String?
     var id : String?
+}
+
+struct Category {
+    var name : String
+    var image : UIImage
 }

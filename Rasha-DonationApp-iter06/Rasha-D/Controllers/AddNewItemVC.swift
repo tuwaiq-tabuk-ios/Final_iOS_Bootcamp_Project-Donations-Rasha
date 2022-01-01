@@ -10,6 +10,9 @@ import Firebase
 import FirebaseStorage
 
 class AddNewItemVC: UIViewController  {
+    
+    
+    
     @IBOutlet weak var itemImageView: UIImageView!
     
     @IBOutlet weak var titelTextFild: UITextField!
@@ -25,7 +28,12 @@ class AddNewItemVC: UIViewController  {
     
     @IBOutlet weak var cityNameButton: UIButton!
     @IBOutlet weak var itemImageViewTop: NSLayoutConstraint!
+    @IBOutlet weak var categoryNameButton: UIButton!
     
+  
+    @IBAction func categoryButtonAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "showCitiesAndCategories", sender: "category")
+    }
     
     
     
@@ -38,6 +46,7 @@ class AddNewItemVC: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         cityTextFild.isHidden = true
+        descriptionTextView.delegate = self
         
         settingUpKeyboardNotifications()
         
@@ -52,13 +61,14 @@ class AddNewItemVC: UIViewController  {
     @IBAction func cityButtonAction(_ sender: Any) {
         
        
-        performSegue(withIdentifier: "showCities", sender: nil)
+        performSegue(withIdentifier: "showCitiesAndCategories", sender: "city")
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCities" {
+        if segue.identifier == "showCitiesAndCategories" {
             let destination = segue.destination as! citiesAndCategoriesVC
                 destination.delegate = self
+            destination.selectedButton = sender as! String
         }
     }
     
@@ -67,7 +77,7 @@ class AddNewItemVC: UIViewController  {
     var ttitleSuccess = false
     var citySuccess = false
     var descriptionSuccess = false
-    
+    var categorySuccess = false
     
     @IBAction func sendButtonAction(_ sender: UIButton) {
         var userName = String()
@@ -92,18 +102,46 @@ class AddNewItemVC: UIViewController  {
         }else {
             ttitleSuccess = false
         }
+        var selectedCity = String()
         
-        if let city = cityTextFild.text, city.isEmpty == false {
-            citySuccess = true
-        }else{
+        if cityNameButton.titleLabel?.text == "Choos City" {
             citySuccess = false
+        } else {
+            if cityNameButton.titleLabel?.text == "other" {
+                if let city = titelTextFild.text, city.isEmpty == false {
+                    citySuccess = true
+                    selectedCity = cityTextFild.text!
+                    cityTextFild.backgroundColor = .white
+                } else {
+                    citySuccess = false
+                    cityNameButton.backgroundColor = .red
+                }
+            }else {
+                citySuccess = true
+                selectedCity = (cityNameButton.titleLabel?.text)!
+            }
         }
-        if let desperation = descriptionTextView.text, desperation.isEmpty == false {
+        if categoryNameButton.titleLabel?.text == "Choose Category" {
+            categorySuccess = false
+            categoryNameButton.backgroundColor = .red
+        } else {
+            categorySuccess = true
+            categoryNameButton.backgroundColor = .white
+        }
+    
+        
+        
+        
+        if let description = descriptionTextView.text, description.isEmpty == false {
             descriptionSuccess = true
-        }else{
+        } else {
             descriptionSuccess = false
-            
         }
+
+        
+        
+        
+        
         
         
         
@@ -121,12 +159,13 @@ class AddNewItemVC: UIViewController  {
                             Firestore.firestore().collection("Items").document(UUID().uuidString).setData([
                                 "imageUrl" : imageUrl,
                                 "title" : titelTextFild.text!,
-                                "city" : cityTextFild.text!,
+                                "city" : selectedCity,
                                 "description" : descriptionTextView.text!,
                                 "username" : userName,
                                 "date" : currentDate,
                                 "userID" : userID ,
-                                "timestamp" : timestamp
+                                "timestamp" : timestamp,
+                                "category" : categoryNameButton.titleLabel?.text!
                             ]) { error in
                                 if error == nil {
                                     //return to ItemsTableView
@@ -165,6 +204,8 @@ extension AddNewItemVC: UIImagePickerControllerDelegate, UINavigationControllerD
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
         }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { UIAlertAction in}))
         self.present(actionSheet, animated: true, completion: nil)
     }
     
@@ -211,15 +252,40 @@ extension AddNewItemVC {
         }
     }
 }
-extension AddNewItemVC : citiesAndCategoriesVCDelegate {
-    func citySelected(cityName: String) {
-        cityNameButton.setTitle(cityName, for: .normal)
-        if cityName == "other" {
-            cityTextFild.isHidden = false
-        }
-        cityTextFild.text = cityName
-        print(cityTextFild.text)
-    }
- 
 
+extension AddNewItemVC : CitiesAndCategoriesVCDelegate {
+    func pickerSelectedRow(name: String, selectedButton: String) {
+        if selectedButton == "city" {
+            cityNameButton.setTitle(name, for: .normal)
+            cityNameButton.tintColor = .darkGray
+            if name == "other" {
+                cityTextFild.isHidden = false
+                cityNameButton.tintColor = .lightGray
+            } else {
+                cityTextFild.isHidden = true
+            }
+        } else {
+            categoryNameButton.setTitle(name, for: .normal)
+            categoryNameButton.tintColor = .darkGray
+        }
+    }
+}
+
+
+extension AddNewItemVC : UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Item's description" {
+            textView.text = ""
+            textView.textColor = .darkGray
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let trimmed = textView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        textView.text = trimmed
+        if textView.text == "" {
+            textView.text = "Item's description"
+            textView.textColor = .lightGray
+        }
+    }
 }

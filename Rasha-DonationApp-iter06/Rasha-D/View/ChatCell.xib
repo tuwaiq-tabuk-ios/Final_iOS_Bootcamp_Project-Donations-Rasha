@@ -51,7 +51,7 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="rDs-4D-Nyb" secondAttribute="bottom" constant="10" id="5dA-y0-l38"/>
                     <constraint firstItem="rDs-4D-Nyb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="FIz-Zh-QIV"/>
-                    <constraint firstItem="rDs-4D-Nyb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" priority="250" constant="341" id="VmF-JC-9Nb"/>
+                    <constraint firstItem="rDs-4D-Nyb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" priority="250" constant="10" id="VmF-JC-9Nb"/>
                     <constraint firstAttribute="trailing" secondItem="rDs-4D-Nyb" secondAttribute="trailing" constant="10" id="ieU-u9-RiN"/>
                 </constraints>
             </tableViewCellContentView>

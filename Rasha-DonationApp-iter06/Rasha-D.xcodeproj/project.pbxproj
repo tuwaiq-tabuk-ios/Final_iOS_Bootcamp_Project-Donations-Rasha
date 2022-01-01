@@ -19,6 +19,9 @@
 		DA257F0A276E2D220065E4F5 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA257F08276E2D210065E4F5 /* ItemCell.xib */; };
 		DA257F0C276E41660065E4F5 /* AddNewItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA257F0B276E41660065E4F5 /* AddNewItemVC.swift */; };
 		DA415A79276A04F2000D5A1C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA415A78276A04F1000D5A1C /* GoogleService-Info.plist */; };
+		DA47C9A5277FDAC600BBF567 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47C9A3277FDAC600BBF567 /* CategoryCell.swift */; };
+		DA47C9A6277FDAC600BBF567 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA47C9A4277FDAC600BBF567 /* CategoryCell.xib */; };
+		DA47C9A8277FDCC900BBF567 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47C9A7277FDCC900BBF567 /* CategoryCollectionViewController.swift */; };
 		DA68C8B52778A67E007814D7 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA68C8B32778A67D007814D7 /* ChatCell.swift */; };
 		DA68C8B62778A67E007814D7 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA68C8B42778A67D007814D7 /* ChatCell.xib */; };
 		DA6B8AE62770CF8F00DA69D4 /* UserValidationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */; };
@@ -74,6 +77,9 @@
 		DA257F08276E2D210065E4F5 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		DA257F0B276E41660065E4F5 /* AddNewItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemVC.swift; sourceTree = "<group>"; };
 		DA415A78276A04F1000D5A1C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA47C9A3277FDAC600BBF567 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		DA47C9A4277FDAC600BBF567 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		DA47C9A7277FDCC900BBF567 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		DA68C8B32778A67D007814D7 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		DA68C8B42778A67D007814D7 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationVC.swift; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 				DA174DAD2779E45200F86646 /* ResentChatCell.xib */,
 				DA257F08276E2D210065E4F5 /* ItemCell.xib */,
 				DA68C8B42778A67D007814D7 /* ChatCell.xib */,
+				DA47C9A3277FDAC600BBF567 /* CategoryCell.swift */,
+				DA47C9A4277FDAC600BBF567 /* CategoryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 				DA68C8B32778A67D007814D7 /* ChatCell.swift */,
 				DADC9E432775F39600147ADE /* ChatVC.swift */,
 				DA257F07276E2D210065E4F5 /* ItemCell.swift */,
+				DA47C9A7277FDCC900BBF567 /* CategoryCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -358,6 +367,7 @@
 				DA415A79276A04F2000D5A1C /* GoogleService-Info.plist in Resources */,
 				DA8092FE2768F82F0050F394 /* Main.storyboard in Resources */,
 				DA174DAF2779E45200F86646 /* ResentChatCell.xib in Resources */,
+				DA47C9A6277FDAC600BBF567 /* CategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA47C9A5277FDAC600BBF567 /* CategoryCell.swift in Sources */,
 				DA174DAE2779E45200F86646 /* ResentChatCell.swift in Sources */,
 				DADC9E442775F39600147ADE /* ChatVC.swift in Sources */,
 				DA174DB12779E77D00F86646 /* ResentChatVC.swift in Sources */,
@@ -492,6 +503,7 @@
 				DA8092FB2768F82F0050F394 /* SignInVC.swift in Sources */,
 				DA257F05276E02D50065E4F5 /* MainVC.swift in Sources */,
 				DA8092F72768F82F0050F394 /* AppDelegate.swift in Sources */,
+				DA47C9A8277FDCC900BBF567 /* CategoryCollectionViewController.swift in Sources */,
 				DA8093012768F82F0050F394 /* Rasha_D.xcdatamodeld in Sources */,
 				DA6B8AE82770E3B700DA69D4 /* Model.swift in Sources */,
 				DA14B60E277B2C4A007A4620 /* citiesAndCategoriesVC.swift in Sources */,

@@ -16,7 +16,7 @@ class RecentChatsVC: UITableViewController {
         super.viewDidLoad()
 
         getRecentChats { users in
-            self .recentChats.removeAll()
+            self.recentChats.removeAll()
             for userID in users {
                 Firestore.firestore().collection("Users").document(userID).getDocument { snapshot, error in
                     if error == nil {
@@ -29,7 +29,6 @@ class RecentChatsVC: UITableViewController {
                     }
                 }
             }
-            
         }
         
         tableView.register(UINib(nibName: "ResentChatCell", bundle: nil), forCellReuseIdentifier: cellId)
@@ -53,7 +52,6 @@ class RecentChatsVC: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tabBarController?.tabBar.isHidden = true
         let chatUser = ChatUser(name : recentChats[indexPath.row].name , id: recentChats[indexPath.row].id)
         performSegue(withIdentifier: "goToChatVC", sender: chatUser)
     }
@@ -63,6 +61,7 @@ class RecentChatsVC: UITableViewController {
             nextVC.user = sender as? ChatUser
         }
     }
+
   
     func getRecentChats(completion : @escaping ([String])->()) {
         Firestore.firestore().collection("Messages").addSnapshotListener { snapshot, erroe in
@@ -79,22 +78,17 @@ class RecentChatsVC: UITableViewController {
                         if sender != currentUserId {
                             if !tempUsers.contains(sender!) {
                                 tempUsers.append(sender!)
+                            }
                         }
-                    }
                         if reciever != currentUserId {
                             if !tempUsers.contains(reciever!) {
                                 tempUsers.append(reciever!)
+                            }
                         }
+                    }
                 }
+                completion(tempUsers)
             }
         }
-                completion(tempUsers)
-    }
-    
-    }
-
-   
-
-
     }
 }

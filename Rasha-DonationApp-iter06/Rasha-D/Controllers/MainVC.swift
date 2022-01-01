@@ -20,20 +20,18 @@ class MainVC : UIViewController   {
     
     var items = [Item]()
     var filterdItmes = [Item]()
+    var me = String()
     var isSearching = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        me = Auth.auth().currentUser!.uid
         
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
         itemsTableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "Cell")
         searchBar.delegate = self
-        
-        getItemsData()
-        
-        
+  
         // just for test
         guard let userID = Auth.auth().currentUser?.uid else {return}
         Firestore.firestore().collection("Users").document(userID).getDocument { snapshot, error in
@@ -46,8 +44,16 @@ class MainVC : UIViewController   {
                 }
             }
         }
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CategoryCollectionViewController.selectedCategory != "" {
+            // get data for selected category
+            getSpecificCategoryData()
+        } else {
+            getItemsData()
+        }
     }
     
     @IBAction func exetButtonAction(_ sender: UIBarButtonItem) {
@@ -64,12 +70,14 @@ class MainVC : UIViewController   {
     }
     
     func getItemsData() {
-        Firestore.firestore().collection("Items").addSnapshotListener { snapshot, error in
+        Firestore.firestore().collection("Items").order(by: "timestamp", descending: true).addSnapshotListener { snapshot, error in
             if error == nil {
                 self.items.removeAll()
                 
                 if let value = snapshot?.documents {
                     for item in value {
+                        
+                        let id = item.documentID
                         let data = item.data()
                         let username = data["username"] as? String
                         let title = data["title"] as? String
@@ -79,17 +87,41 @@ class MainVC : UIViewController   {
                         let description = data["description"] as? String
                         let userID = data ["userID"] as? String
                         let timestamp = data["timestamp"] as? TimeInterval
+                        let category = data["category"] as? String
                         
-                        
-                        self.items.append(Item(description: description, city: city, title: title, imageUrl: imageUrl, date: date, username: username, userID: userID, timestamp: timestamp))
+                        self.items.append(Item(id : id, description: description, city: city, title: title, imageUrl: imageUrl, date: date, username: username, userID: userID, timestamp: timestamp, category: category))
                     }
                 }
             }
-            
-            
-            
-//            self.items = self.items.sorted(by: {$0.timestamp! > $1.timestamp!})
-            
+            self.itemsTableView.reloadData()
+        }
+    }
+    
+    func getSpecificCategoryData() {
+        Firestore.firestore().collection("Items").order(by: "timestamp", descending: true).addSnapshotListener { snapshot, error in
+            if error == nil {
+                self.items.removeAll()
+                if let value = snapshot?.documents {
+                    for item in value {
+                        let id = item.documentID
+                        let data = item.data()
+                        let username = data["username"] as? String
+                        let title = data["title"] as? String
+                        let city = data["city"] as? String
+                        let date = data["date"] as? String
+                        let imageUrl = data["imageUrl"] as? String
+                        let description = data["description"] as? String
+                        let userID = data ["userID"] as? String
+                        let timestamp = data["timestamp"] as? TimeInterval
+                        let category = data["category"] as? String
+                        
+                        if category == CategoryCollectionViewController.selectedCategory {
+                            self.items.append(Item(id : id, description: description, city: city, title: title, imageUrl: imageUrl, date: date, username: username, userID: userID, timestamp: timestamp, category: category))
+                        }
+                    }
+                }
+            }
+            CategoryCollectionViewController.selectedCategory = ""
             self.itemsTableView.reloadData()
         }
     }
@@ -229,8 +261,28 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    func tableView(_tableView: UITableView, commit edtingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if edtingStyle == .delete {
+            alertAction(id: items[indexPath.row].id!)
+        }
+    }
+    func alertAction(id : String) {
+        let alert = UIAlertController(title: "Alert", message: "Are you sure ! ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok", style: .destructive, handler: { action in
+            Firestore.firestore().collection("Items").document(id).delete()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in }))
+        self.present(alert, animated: true, completion: nil)
+    }
+        
+    
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return items[indexPath.row].userID == me
+       }
     
 }
+
 
 //MARK: - SearchBar Delegate
 extension MainVC : UISearchBarDelegate {
@@ -262,3 +314,4 @@ extension MainVC : UISearchBarDelegate {
         }
     }
 }
+

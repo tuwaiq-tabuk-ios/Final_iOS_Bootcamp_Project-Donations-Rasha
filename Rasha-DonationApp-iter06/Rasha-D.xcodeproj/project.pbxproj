@@ -22,6 +22,10 @@
 		DA47C9A5277FDAC600BBF567 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47C9A3277FDAC600BBF567 /* CategoryCell.swift */; };
 		DA47C9A6277FDAC600BBF567 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA47C9A4277FDAC600BBF567 /* CategoryCell.xib */; };
 		DA47C9A8277FDCC900BBF567 /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47C9A7277FDCC900BBF567 /* CategoryCollectionViewController.swift */; };
+		DA5A61582780F5EA00B5A364 /* AddNewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A61572780F5EA00B5A364 /* AddNewRequest.swift */; };
+		DA5A615A2781008E00B5A364 /* RequestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A61592781008D00B5A364 /* RequestsVC.swift */; };
+		DA5A615D2781046200B5A364 /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5A615B2781046200B5A364 /* RequestCell.swift */; };
+		DA5A615E2781046200B5A364 /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA5A615C2781046200B5A364 /* RequestCell.xib */; };
 		DA68C8B52778A67E007814D7 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA68C8B32778A67D007814D7 /* ChatCell.swift */; };
 		DA68C8B62778A67E007814D7 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA68C8B42778A67D007814D7 /* ChatCell.xib */; };
 		DA6B8AE62770CF8F00DA69D4 /* UserValidationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */; };
@@ -80,6 +84,10 @@
 		DA47C9A3277FDAC600BBF567 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		DA47C9A4277FDAC600BBF567 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		DA47C9A7277FDCC900BBF567 /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
+		DA5A61572780F5EA00B5A364 /* AddNewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRequest.swift; sourceTree = "<group>"; };
+		DA5A61592781008D00B5A364 /* RequestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsVC.swift; sourceTree = "<group>"; };
+		DA5A615B2781046200B5A364 /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
+		DA5A615C2781046200B5A364 /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestCell.xib; sourceTree = "<group>"; };
 		DA68C8B32778A67D007814D7 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		DA68C8B42778A67D007814D7 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationVC.swift; sourceTree = "<group>"; };
@@ -163,6 +171,8 @@
 				DA68C8B42778A67D007814D7 /* ChatCell.xib */,
 				DA47C9A3277FDAC600BBF567 /* CategoryCell.swift */,
 				DA47C9A4277FDAC600BBF567 /* CategoryCell.xib */,
+				DA5A615B2781046200B5A364 /* RequestCell.swift */,
+				DA5A615C2781046200B5A364 /* RequestCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +201,8 @@
 				DADC9E432775F39600147ADE /* ChatVC.swift */,
 				DA257F07276E2D210065E4F5 /* ItemCell.swift */,
 				DA47C9A7277FDCC900BBF567 /* CategoryCollectionViewController.swift */,
+				DA5A61572780F5EA00B5A364 /* AddNewRequest.swift */,
+				DA5A61592781008D00B5A364 /* RequestsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -365,6 +377,7 @@
 				DA8093032768F8300050F394 /* Assets.xcassets in Resources */,
 				DA257F0A276E2D220065E4F5 /* ItemCell.xib in Resources */,
 				DA415A79276A04F2000D5A1C /* GoogleService-Info.plist in Resources */,
+				DA5A615E2781046200B5A364 /* RequestCell.xib in Resources */,
 				DA8092FE2768F82F0050F394 /* Main.storyboard in Resources */,
 				DA174DAF2779E45200F86646 /* ResentChatCell.xib in Resources */,
 				DA47C9A6277FDAC600BBF567 /* CategoryCell.xib in Resources */,
@@ -495,6 +508,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5A615A2781008E00B5A364 /* RequestsVC.swift in Sources */,
+				DA5A615D2781046200B5A364 /* RequestCell.swift in Sources */,
 				DA47C9A5277FDAC600BBF567 /* CategoryCell.swift in Sources */,
 				DA174DAE2779E45200F86646 /* ResentChatCell.swift in Sources */,
 				DADC9E442775F39600147ADE /* ChatVC.swift in Sources */,
@@ -508,6 +523,7 @@
 				DA6B8AE82770E3B700DA69D4 /* Model.swift in Sources */,
 				DA14B60E277B2C4A007A4620 /* citiesAndCategoriesVC.swift in Sources */,
 				DA257F09276E2D210065E4F5 /* ItemCell.swift in Sources */,
+				DA5A61582780F5EA00B5A364 /* AddNewRequest.swift in Sources */,
 				DA80932C2768FD600050F394 /* SignUpVC.swift in Sources */,
 				DA8092F92768F82F0050F394 /* SceneDelegate.swift in Sources */,
 				DA68C8B52778A67E007814D7 /* ChatCell.swift in Sources */,

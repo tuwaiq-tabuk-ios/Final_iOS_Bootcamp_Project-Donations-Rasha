@@ -38,3 +38,22 @@ struct Category {
     var name : String
     var image : UIImage
 }
+
+struct Request {
+    var requestID : String?
+    var userID : String?
+    var requestText : String?
+    var date : String?
+    var city : String?
+}
+
+
+
+extension UIViewController {
+    func sendDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-M-YYYY"
+        let currentDate = formatter.string(from: Date())
+        return currentDate
+    }
+}

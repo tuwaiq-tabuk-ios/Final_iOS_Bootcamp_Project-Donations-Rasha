@@ -1,6 +1,0 @@
-framework module Pods_Rasha_D_Rasha_DUITests {
-  umbrella header "Pods-Rasha-D-Rasha-DUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

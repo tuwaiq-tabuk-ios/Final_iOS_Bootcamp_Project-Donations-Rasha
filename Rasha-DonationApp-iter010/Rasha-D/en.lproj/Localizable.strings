@@ -1,0 +1,62 @@
+/* 
+  Localizable.strings
+  Rasha-D
+
+  Created by rasha  on 03/06/1443 AH.
+  
+*/
+
+// citiesAndCategoriesVC
+"Tabuk" = "Tabuk";
+"Jeddah" = "Jeddah";
+"Abha" = "Abha";
+"Riyadh" = "Riyadh";
+"Makkah" = "Makkah";
+"Taif" = "Taif";
+"Bisha" = "Bisha";
+"other" = "other";
+
+"city" = "city";
+
+
+// itemDetailVC
+"Direct Message With" = "Direct Message With";
+
+// AddNewItemVC
+"Choos City" = "Choos City";
+"Choose Category" = "Choose Category";
+"Photo source" = "Photo source";
+"Camera" = "Camera";
+"Photo Library" = "Photo Library";
+"Cancel" = "Cancel";
+"Item's description" = "Item's description";
+
+//MainVC
+"No Items Here" = "No Items Here";
+"Alert" = "Alert";
+"Are you sure ! " = "Are you sure you want to delete the item ! ";
+"ok" = "ok";
+
+// ChatVC
+"message here" = "message here";
+
+// CategoryCollectionViewController
+"Clothes" = "Clothes";
+"Medical" = "Medical";
+"Food" = "Food";
+"Books" = "Books";
+
+// AddNewRequest
+"Request Description" = "Request Description";
+
+// RequestsVC
+"Requests" = "Requests";
+
+// Extensions
+"Mail is already in use " = "Mail is already in use ";
+" weak password " = " weak password ";
+"Check network connection " = "Check network connection ";
+"  Account not found " = "  Account not found ";
+" wrong email " = " wrong email ";
+" wrong password " = " wrong password ";
+" unknown error " = " unknown error ";

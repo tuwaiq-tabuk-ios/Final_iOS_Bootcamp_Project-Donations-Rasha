@@ -1,0 +1,69 @@
+/* 
+  Localizable.strings
+  Rasha-D
+
+  Created by rasha  on 03/06/1443 AH.
+  
+*/
+
+// citiesAndCategoriesVC
+
+"Tabuk" = "تبوك";
+"Jeddah" = "جدة";
+"Abha" = "ابها";
+"Riyadh" = "رياض";
+"Makkah" = "مكة";
+"Taif" = "الطايف";
+"Bisha" = "بيشة";
+"other" = "أخرى";
+
+"city" = "مدينة";
+
+
+// itemDetailVC
+"Direct Message With" = "رسالة خاصة مع";
+
+// AddNewItemVC
+"Choos City" = "اختر مدينة";
+"Choose Category" = "اختر تصنيف";
+"Photo source" = "مصدر الصور";
+"Camera" = "الكاميرا";
+"Photo Library" = "الاستيديو";
+"Cancel" = "تراجع";
+"Item's description" = "صندوق الوصف ";
+
+//MainVC
+"No Items Here" = "لا يوجد عناصر هنا";
+"Alert" = "تنبيه";
+"Are you sure ! " = "هل انت متأكد تريد حذف عنصر  ! ";
+"ok" = "نعم";
+
+// ChatVC
+"message here" = "رسالتك هنا ";
+
+// CategoryCollectionViewController
+
+"Clothes" = "ملابس";
+"Medical" = "طبي";
+"Food" = "اطعمة";
+"Books" = "كتب";
+"Electric" = "اجهزة كهربائية";
+"Furniture" = "أثاث";
+
+// AddNewRequest
+"Request Description" = "وصف الاعلان";
+
+// RequestsVC
+"Requests" = "طلب";
+
+
+// Extensions
+
+"Mail is already in use " = "البريد مستعمل بالفعل.";
+" weak password " = "الرمز السري ضعيف";
+"Check network connection " = "حدث خطا تحقق من اتصالك بالشبكة";
+"  Account not found " = "نعتذر الحساب غير موجود او مسجل";
+" wrong email " = "البريد الالكتروني خاطئ";
+" wrong password " = "الرمز السري خطا";
+" unknown error " = "خطا غير معروف";
+

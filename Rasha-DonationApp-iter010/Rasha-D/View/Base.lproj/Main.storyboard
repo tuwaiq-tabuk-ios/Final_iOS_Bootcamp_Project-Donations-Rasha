@@ -339,7 +339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eK1-46-PzE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-941" y="4366"/>
+            <point key="canvasLocation" x="-575" y="4227"/>
         </scene>
         <!--Add New ItemVC-->
         <scene sceneID="xle-wV-wsn">
@@ -1096,7 +1096,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oC7-s6-bcL"/>
+        <segue reference="1bG-W6-OBf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="globalTint"/>
     <resources>

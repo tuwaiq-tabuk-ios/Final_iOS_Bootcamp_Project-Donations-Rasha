@@ -9,7 +9,9 @@ import UIKit
 import Firebase
 
 class SignUpVC: UIViewController {
-    
+  
+ 
+  
     @IBOutlet weak var nameTextField: XTextField!
     @IBOutlet weak var emailTextField: XTextField!
     @IBOutlet weak var passwordTextField: XTextField!
@@ -23,17 +25,13 @@ class SignUpVC: UIViewController {
         
         setupUI()
         errorLabel.alpha = 0
-        
-        
-        
+      
     }
     
     var nameSuccess = false
     var emailSuccess = false
     var passwordSuccess = false
-    
-    
-    
+ 
     @IBAction func signUpAction(_ sender: UIButton) {
         if let name = nameTextField.text, name.isEmpty == false {
             nameSuccess = true
@@ -98,21 +96,5 @@ class SignUpVC: UIViewController {
         passwordTextField.layer.cornerRadius = 20
         nameTextField.layer.cornerRadius = 20
         signUpButton.layer.cornerRadius = 20
-    }
-    
-    
-    
-}
-
-extension UIView {
-    func addShadow(shadowColor: UIColor,
-                   shadowOffset: CGSize = CGSize(width: 0.0, height: 0.0),
-                   shadowOpacity: Float = 1.0,
-                   shadowRadius: CGFloat = 5.0) {
-        layer.shadowColor = shadowColor.cgColor
-        layer.shadowOffset = .zero
-        layer.shadowOpacity = shadowOpacity
-        layer.shadowRadius = shadowRadius
-        layer.masksToBounds = false
     }
 }

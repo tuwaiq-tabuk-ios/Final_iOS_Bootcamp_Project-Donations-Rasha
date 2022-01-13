@@ -10,9 +10,7 @@ import Firebase
 import FirebaseStorage
 
 class AddNewItemVC: UIViewController  {
-    
-    
-    
+
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var titelTextFild: UITextField!
     @IBOutlet weak var cityTextFild: UITextField!
@@ -80,7 +78,7 @@ class AddNewItemVC: UIViewController  {
     
     
     var imageSuccess = false
-    var ttitleSuccess = false
+    var titleSuccess = false
     var citySuccess = false
     var descriptionSuccess = false
     var categorySuccess = false
@@ -104,35 +102,40 @@ class AddNewItemVC: UIViewController  {
         
         
         if let itemTitle = titelTextFild.text, itemTitle.isEmpty == false{
-            ttitleSuccess = true
+            titleSuccess = true
         }else {
-            ttitleSuccess = false
+            titleSuccess = false
+            titelTextFild.shakeView()
         }
+        
+        
         var selectedCity = String()
         
         if cityNameButton.titleLabel?.text == "Choos City".localize() {
             citySuccess = false
-        } else {
+        }
+        else {
             if cityNameButton.titleLabel?.text == "other".localize() {
-                if let city = titelTextFild.text, city.isEmpty == false {
+                if let city = cityTextFild.text, city.isEmpty == false {
                     citySuccess = true
                     selectedCity = cityTextFild.text!
-                    cityTextFild.backgroundColor = .white
                 } else {
                     citySuccess = false
-                    cityNameButton.backgroundColor = .red
+                    cityTextFild.shakeView()
                 }
-            }else {
+            }
+            else {
                 citySuccess = true
                 selectedCity = (cityNameButton.titleLabel?.text)!
             }
         }
+        
+        
         if categoryNameButton.titleLabel?.text == "Choose Category".localize() {
             categorySuccess = false
-            categoryNameButton.backgroundColor = .red
+            cityTextFild.shakeView()
         } else {
             categorySuccess = true
-            categoryNameButton.backgroundColor = .white
         }
         
         
@@ -146,10 +149,10 @@ class AddNewItemVC: UIViewController  {
         
 
         
-        if imageSuccess,ttitleSuccess,citySuccess,descriptionSuccess {
+        if imageSuccess,titleSuccess,citySuccess, categorySuccess, descriptionSuccess {
             loadingSpinner.startAnimating()
             
-            let  storageRef = Storage.storage().reference().child(UUID().uuidString)
+            let storageRef = Storage.storage().reference().child(UUID().uuidString)
             guard let itemImageData = itemImageView.image?.pngData() else {return}
             let timestamp = String(Date().timeIntervalSince1970)
             storageRef.putData(itemImageData, metadata: nil) { meta, error in
@@ -187,6 +190,7 @@ extension AddNewItemVC: UIImagePickerControllerDelegate, UINavigationControllerD
     @objc func imageAction(){
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
+        
         let actionSheet = UIAlertController(title: "Photo source".localize(), message: "", preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Camera".localize(), style: .default, handler: { UIAlertAction in
@@ -195,7 +199,7 @@ extension AddNewItemVC: UIImagePickerControllerDelegate, UINavigationControllerD
                 self.present(imagePickerController, animated: true, completion: nil)
             } else {
                 //show message
-                print("Camera Not Avallable")
+                print("Camera Not Available")
             }
             
         }))
@@ -207,6 +211,7 @@ extension AddNewItemVC: UIImagePickerControllerDelegate, UINavigationControllerD
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel".localize(), style: .cancel, handler: { UIAlertAction in}))
+        
         self.present(actionSheet, animated: true, completion: nil)
     }
     

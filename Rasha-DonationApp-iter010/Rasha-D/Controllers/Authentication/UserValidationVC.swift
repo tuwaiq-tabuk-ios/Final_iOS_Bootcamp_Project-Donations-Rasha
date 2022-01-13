@@ -26,7 +26,6 @@ class UserValidationVC: UIViewController {
             
         }else{
             // go to MainVC
-            print("uid : " , Auth.auth().currentUser?.uid)
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
             vc?.modalPresentationStyle = .fullScreen
             vc?.modalTransitionStyle = .crossDissolve

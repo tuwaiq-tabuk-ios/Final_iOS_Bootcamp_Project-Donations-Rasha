@@ -194,13 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				DA8092FC2768F82F0050F394 /* Main.storyboard */,
-				DA174DAD2779E45200F86646 /* ResentChatCell.xib */,
-				DA257F08276E2D210065E4F5 /* ItemCell.xib */,
-				DA68C8B42778A67D007814D7 /* ChatCell.xib */,
-				DA47C9A3277FDAC600BBF567 /* CategoryCell.swift */,
-				DA47C9A4277FDAC600BBF567 /* CategoryCell.xib */,
-				DA5A615B2781046200B5A364 /* RequestCell.swift */,
-				DA5A615C2781046200B5A364 /* RequestCell.xib */,
+				DACB31E62790300F00142D1D /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,22 +214,8 @@
 		DA6B8AEA2771077E00DA69D4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DA14B60D277B2C4A007A4620 /* citiesAndCategoriesVC.swift */,
-				DA174DB02779E77D00F86646 /* ResentChatVC.swift */,
-				DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */,
-				DA174DAC2779E45200F86646 /* ResentChatCell.swift */,
-				DA8092FA2768F82F0050F394 /* SignInVC.swift */,
-				DA80932B2768FD600050F394 /* SignUpVC.swift */,
-				DA9549BD2773CA9300DBB418 /* itemDetailVC.swift */,
-				DA257F0B276E41660065E4F5 /* AddNewItemVC.swift */,
-				DA257F04276E02D50065E4F5 /* MainVC.swift */,
-				DA68C8B32778A67D007814D7 /* ChatCell.swift */,
-				DADC9E432775F39600147ADE /* ChatVC.swift */,
-				DA257F07276E2D210065E4F5 /* ItemCell.swift */,
-				DA47C9A7277FDCC900BBF567 /* CategoryCollectionVC.swift */,
-				DA5A61572780F5EA00B5A364 /* AddNewRequest.swift */,
-				DA5A61592781008D00B5A364 /* RequestsVC.swift */,
-				DA0F21AB278241CB00D744FB /* RequestDetailsVC.swift */,
+				DACB31E72790311100142D1D /* Authentication */,
+				DACB31E82790319000142D1D /* TabBar */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +277,82 @@
 				DA80931C2768F8300050F394 /* Rasha_DUITestsLaunchTests.swift */,
 			);
 			path = "Rasha-DUITests";
+			sourceTree = "<group>";
+		};
+		DACB31E62790300F00142D1D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DA257F07276E2D210065E4F5 /* ItemCell.swift */,
+				DA257F08276E2D210065E4F5 /* ItemCell.xib */,
+				DA174DAC2779E45200F86646 /* ResentChatCell.swift */,
+				DA174DAD2779E45200F86646 /* ResentChatCell.xib */,
+				DA68C8B32778A67D007814D7 /* ChatCell.swift */,
+				DA68C8B42778A67D007814D7 /* ChatCell.xib */,
+				DA47C9A3277FDAC600BBF567 /* CategoryCell.swift */,
+				DA47C9A4277FDAC600BBF567 /* CategoryCell.xib */,
+				DA5A615B2781046200B5A364 /* RequestCell.swift */,
+				DA5A615C2781046200B5A364 /* RequestCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DACB31E72790311100142D1D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				DA80932B2768FD600050F394 /* SignUpVC.swift */,
+				DA8092FA2768F82F0050F394 /* SignInVC.swift */,
+				DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		DACB31E82790319000142D1D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				DACB31E9279031B800142D1D /* MainVC */,
+				DACB31EA2790325A00142D1D /* ChatVC */,
+				DACB31EB2790328900142D1D /* CategoryVC */,
+				DACB31EC279032E200142D1D /* RequestVC */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		DACB31E9279031B800142D1D /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA9549BD2773CA9300DBB418 /* itemDetailVC.swift */,
+				DA257F0B276E41660065E4F5 /* AddNewItemVC.swift */,
+				DA14B60D277B2C4A007A4620 /* citiesAndCategoriesVC.swift */,
+				DA257F04276E02D50065E4F5 /* MainVC.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		DACB31EA2790325A00142D1D /* ChatVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA174DB02779E77D00F86646 /* ResentChatVC.swift */,
+				DADC9E432775F39600147ADE /* ChatVC.swift */,
+			);
+			name = ChatVC;
+			sourceTree = "<group>";
+		};
+		DACB31EB2790328900142D1D /* CategoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA47C9A7277FDCC900BBF567 /* CategoryCollectionVC.swift */,
+			);
+			name = CategoryVC;
+			sourceTree = "<group>";
+		};
+		DACB31EC279032E200142D1D /* RequestVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA5A61572780F5EA00B5A364 /* AddNewRequest.swift */,
+				DA5A61592781008D00B5A364 /* RequestsVC.swift */,
+				DA0F21AB278241CB00D744FB /* RequestDetailsVC.swift */,
+			);
+			name = RequestVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

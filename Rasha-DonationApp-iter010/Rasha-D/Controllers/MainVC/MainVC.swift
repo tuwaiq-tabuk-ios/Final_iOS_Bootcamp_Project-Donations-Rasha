@@ -31,33 +31,23 @@ class MainVC : UIViewController   {
         itemsTableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "Cell")
         searchBar.delegate = self
         
-        // just for test
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-        Firestore.firestore().collection("Users").document(userID).getDocument { snapshot, error in
-            if error == nil {
-                if let value = snapshot?.data() {
-                    if let name = value["name"] as? String {
-                        self.navigationItem.title = name
-                        
-                    }
-                }
-            }
-        }
     }
     
     let noContentLabel : UILabel = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "No Items Here".localize()
-        $0.textAlignment = .center
-        $0.font = UIFont.boldSystemFont(ofSize: 20)
-        $0.textColor = UIColor.lightGray.withAlphaComponent(0.5)
-        return $0
-    }(UILabel())
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "No Items Here".localize()
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = UIColor.lightGray.withAlphaComponent(0.5)
+        return label
+    }()
     
     func showContentLabel() {
         itemsTableView.addSubview(noContentLabel)
+        
         NSLayoutConstraint.activate([
-            noContentLabel.centerXAnchor.constraint(equalTo: itemsTableView.centerXAnchor),
+        noContentLabel.centerXAnchor.constraint(equalTo: itemsTableView.centerXAnchor),
             noContentLabel.centerYAnchor.constraint(equalTo: itemsTableView.centerYAnchor),
             noContentLabel.rightAnchor.constraint(equalTo: itemsTableView.rightAnchor),
             noContentLabel.leftAnchor.constraint(equalTo: itemsTableView.leftAnchor)
@@ -171,7 +161,7 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemsTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemCell
-        
+
         if isSearching {
             let item = filterdItmes[indexPath.row]
             
@@ -191,26 +181,8 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
                     }
                 }
                 
-            } else {
-                let item = items[indexPath.row]
-                cell.itemLabel.text = item.title
-                cell.userLabel.text = item.username
-                cell.cityLabel.text = item.city
-                cell.dateLabel.text = item.date
-                
-                if let imgeUrlString = item.imageUrl {
-                    if let imagURL = URL(string: imgeUrlString) {
-                        cell.itemImageView.sd_setImage(with: imagURL)  { image , error , cache , url in
-                            if error == nil {
-                                DispatchQueue.main.async {
-                                    cell.itemImageView.image = image
-                                }
-                            }
-                        }
-                    }
-                }
-                
             }
+
         } else {
             let item = items[indexPath.row]
             
@@ -218,7 +190,6 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
             cell.userLabel.text = item.username
             cell.cityLabel.text = item.city
             cell.dateLabel.text = item.date
-            
             
             if let imageUrlIsString = item.imageUrl {
                 if let imageURL = URL(string: imageUrlIsString){
@@ -231,24 +202,6 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
                     }
                 }
                 
-            } else {
-                let item = items[indexPath.row]
-                cell.itemLabel.text = item.title
-                cell.userLabel.text = item.username
-                cell.cityLabel.text = item.city
-                cell.dateLabel.text = item.date
-                
-                if let imgeUrlString = item.imageUrl {
-                    if let imagURL = URL(string: imgeUrlString) {
-                        cell.itemImageView.sd_setImage(with: imagURL)  { image , error , cache , url in
-                            if error == nil {
-                                DispatchQueue.main.async {
-                                    cell.itemImageView.image = image
-                                }
-                            }
-                        }
-                    }
-                }
             }
         }
         return cell
@@ -271,8 +224,8 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetailsVC" {
-            let nextVC = segue.destination as!  itemDetailVC
-            nextVC.passedItem = sender as! Item
+            let nextVC = segue.destination as! itemDetailVC
+            nextVC.passedItem = sender as? Item
         }
         
     }

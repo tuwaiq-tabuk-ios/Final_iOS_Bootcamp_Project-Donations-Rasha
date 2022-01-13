@@ -117,25 +117,21 @@ class ChatVC: UIViewController {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
 }
+
 
 extension ChatVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
     
+  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = chatTabelView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChatCell
         cell.messageLabel.text = messages[indexPath.row].message
         cell.timeLabel.text = messages[indexPath.row].time
         
+      
         if messages[indexPath.row].sender == Auth.auth().currentUser?.uid {
             cell.messageViewLeft.priority = .defaultLow
             cell.messageViewRight.priority = .defaultHigh
@@ -150,8 +146,6 @@ extension ChatVC : UITableViewDelegate , UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
 extension UITableView {
     func scrollToBottomRow() {
@@ -242,6 +236,3 @@ extension ChatVC {
         }
     }
 }
-
-
-

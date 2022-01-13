@@ -17,8 +17,8 @@ extension UIViewController {
     }
     
     func setGradientBackground() {
-        let colorTop = UIColor(named: "topColor")?.cgColor  //UIColor.white.cgColor
-        let colorBottom = UIColor(named: "bottomColor")?.cgColor //UIColor(red: 0.46, green: 0.71, blue: 0.73, alpha: 1.00).cgColor
+        let colorTop = UIColor(named: "topColor")?.cgColor
+        let colorBottom = UIColor(named: "bottomColor")?.cgColor 
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop, colorBottom]

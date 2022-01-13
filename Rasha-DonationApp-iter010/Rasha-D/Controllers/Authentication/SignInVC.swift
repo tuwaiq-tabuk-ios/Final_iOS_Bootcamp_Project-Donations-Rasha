@@ -15,8 +15,7 @@ class SignInVC: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
-    var emaileSuccess = false
-    var passwoordSuccess = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +29,9 @@ class SignInVC: UIViewController {
     }
     
     
+    var emaileSuccess = false
+    var passwordSuccess = false
+    
     @IBAction func singInButton(_ sender: UIButton) {
         
         if let email = emailTextField.text, email.isEmpty == false {
@@ -41,17 +43,17 @@ class SignInVC: UIViewController {
         
         
         if let password = passwordTextField.text, password.isEmpty == false {
-            passwoordSuccess = true
+            passwordSuccess = true
         } else {
-            passwoordSuccess = false
+            passwordSuccess = false
             passwordTextField.shakeView()
         }
         
-        if emaileSuccess == true , passwoordSuccess == true {
+        if emaileSuccess == true , passwordSuccess == true {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { result, error in
                 if error == nil {
                     self.errorLabel.alpha = 0
-                    //go to mainVc
+                    //go to mainVC
                     print("go to MainVC")
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
                     vc?.modalPresentationStyle = .fullScreen

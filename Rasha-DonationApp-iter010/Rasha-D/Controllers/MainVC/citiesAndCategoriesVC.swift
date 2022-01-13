@@ -70,7 +70,7 @@ class citiesAndCategoriesVC: UIViewController , UIPickerViewDelegate , UIPickerV
         if selectedButton == "city".localize() {
             return cities.count
             
-        }else  {
+        }else {
             return CategoryCollectionVC.categories.count
         }
     }

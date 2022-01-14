@@ -10,6 +10,8 @@ import Firebase
 
 class AddNewRequest: UIViewController {
     
+  // MARK: - BOutlet
+  
     @IBOutlet weak var descriptionView : UIView!
     @IBOutlet weak var descriptionTextView : UITextView!
     @IBOutlet weak var cityTextField : XTextField!
@@ -20,6 +22,7 @@ class AddNewRequest: UIViewController {
         super.viewDidLoad()
         
         setGradientBackground()
+      
         cityTextField.backgroundColor = .init(white: 1, alpha: 0.3)
         descriptionView.layer.borderColor = UIColor.lightGray.cgColor
         descriptionView.layer.borderWidth = 1

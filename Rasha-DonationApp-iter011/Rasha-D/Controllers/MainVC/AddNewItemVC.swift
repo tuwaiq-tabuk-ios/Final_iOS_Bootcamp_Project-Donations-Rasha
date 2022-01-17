@@ -23,7 +23,7 @@ class AddNewItemVC: UIViewController  {
     
     
     @IBAction func categoryButtonAction(_ sender: UIButton) {
-        performSegue(withIdentifier: "showCitiesAndCategories", sender: "category")
+      performSegue(withIdentifier: SegueIdentifires.showCitiesAndCategories, sender: "category")
     }
     
     
@@ -65,11 +65,11 @@ class AddNewItemVC: UIViewController  {
     @IBAction func cityButtonAction(_ sender: Any) {
         
         
-        performSegue(withIdentifier: "showCitiesAndCategories", sender: "city".localize())
+      performSegue(withIdentifier: SegueIdentifires.showCitiesAndCategories, sender: "city".localize())
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCitiesAndCategories" {
+        if segue.identifier == SegueIdentifires.showCitiesAndCategories {
             let destination = segue.destination as! citiesAndCategoriesVC
             destination.delegate = self
             destination.selectedButton = sender as! String
@@ -154,7 +154,7 @@ class AddNewItemVC: UIViewController  {
             
             let storageRef = Storage.storage().reference().child(UUID().uuidString)
             guard let itemImageData = itemImageView.image?.pngData() else {return}
-            let timestamp = String(Date().timeIntervalSince1970)
+            let timestamp = Date().timeIntervalSince1970
             storageRef.putData(itemImageData, metadata: nil) { meta, error in
                 if error == nil {
                     storageRef.downloadURL { [self] url, error in

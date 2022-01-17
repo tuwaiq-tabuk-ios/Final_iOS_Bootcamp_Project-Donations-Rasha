@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="BGg-b7-dNb">
-                                <rect key="frame" x="20" y="330.5" width="374" height="235"/>
+                                <rect key="frame" x="20" y="298" width="374" height="300"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="emile" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCl-x4-4Li" customClass="XTextField" customModule="Rasha_D" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
@@ -70,15 +70,14 @@
                                             <segue destination="nUs-te-ido" kind="show" id="shq-kA-f7B"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zR-HY-TGV">
+                                        <rect key="frame" x="0.0" y="260" width="374" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zR-HY-TGV">
-                                <rect key="frame" x="20" y="606" width="374" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.63165900191251423" green="0.86218323916317241" blue="0.87168560606060608" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -121,7 +120,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Zju-ca-8Z4">
-                                <rect key="frame" x="20" y="292" width="374" height="300"/>
+                                <rect key="frame" x="20" y="292" width="374" height="365"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OAf-h7-lfA" customClass="XTextField" customModule="Rasha_D" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
@@ -150,8 +149,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZF-st-FWy">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehN-KW-qCE" customClass="XTextField" customModule="Rasha_D" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="195" width="374" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZF-st-FWy">
+                                        <rect key="frame" x="0.0" y="260" width="374" height="40"/>
                                         <color key="backgroundColor" red="0.68535675060000001" green="0.87168560610000001" blue="0.77495967840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Sign Up " subtitle="">
@@ -163,9 +170,9 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjy-fL-0ki">
-                                        <rect key="frame" x="0.0" y="260" width="374" height="40"/>
+                                        <rect key="frame" x="0.0" y="325" width="374" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -190,6 +197,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="rl9-3T-Cmk"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="confirmPasswordTextField" destination="ehN-KW-qCE" id="Eaw-uD-rYM"/>
                         <outlet property="emailTextField" destination="E1V-he-cvk" id="8cH-hd-3Sr"/>
                         <outlet property="errorLabel" destination="Wjy-fL-0ki" id="LRX-Gi-S92"/>
                         <outlet property="nameTextField" destination="OAf-h7-lfA" id="ebQ-Rd-wD5"/>

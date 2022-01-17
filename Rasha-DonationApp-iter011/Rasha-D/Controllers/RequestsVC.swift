@@ -89,12 +89,12 @@ class RequestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "requestDetails", sender: requests[indexPath.row])
+      performSegue(withIdentifier: SegueIdentifires.requestDetails, sender: requests[indexPath.row])
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "requestDetails" {
+        if segue.identifier == SegueIdentifires.requestDetails {
             let destination = segue.destination as! RequestDetailsVC
             destination.request = sender as? Request
         }

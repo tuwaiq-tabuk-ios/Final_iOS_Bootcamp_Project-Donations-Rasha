@@ -67,3 +67,5 @@
 " wrong password " = "الرمز السري خطا";
 " unknown error " = "خطا غير معروف";
 
+// SignUpVC
+"Passwords Not Match" = "كلمة المرور غير متطابقة";

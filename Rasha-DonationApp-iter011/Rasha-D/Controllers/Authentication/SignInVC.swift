@@ -24,7 +24,7 @@ class SignInVC: UIViewController {
         
         setGradientBackground()
         SetupUI()
-        errorLabel.alpha = 0
+        errorLabel.isHidden = true
  
     }
     
@@ -52,7 +52,7 @@ class SignInVC: UIViewController {
         if emaileSuccess == true , passwordSuccess == true {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { result, error in
                 if error == nil {
-                    self.errorLabel.alpha = 0
+                    self.errorLabel.isHidden = true
                     //go to mainVC
                     print("go to MainVC")
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
@@ -61,8 +61,8 @@ class SignInVC: UIViewController {
                     self.present(vc!, animated: true, completion: nil)
                 } else {
                     //handle error by show error massage
-                    self.errorLabel.alpha = 1
-                    self.errorLabel.text = FirError.Error(Code: error!._code) //error?.localizedDescription
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = FirError.Error(Code: error!._code) 
                 }
             }
         }

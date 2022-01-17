@@ -210,9 +210,9 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isSearching {
-            performSegue(withIdentifier: "showDetailsVC", sender: filterdItmes[indexPath.row])
+          performSegue(withIdentifier: SegueIdentifires.showDetailsVC, sender: filterdItmes[indexPath.row])
         } else {
-            performSegue(withIdentifier: "showDetailsVC", sender: items[indexPath.row])
+            performSegue(withIdentifier: SegueIdentifires.showDetailsVC, sender: items[indexPath.row])
         }
         
         isSearching = false
@@ -223,7 +223,7 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetailsVC" {
+        if segue.identifier == SegueIdentifires.showDetailsVC {
             let nextVC = segue.destination as! itemDetailVC
             nextVC.passedItem = sender as? Item
         }

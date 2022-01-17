@@ -231,7 +231,7 @@ extension ChatVC {
                 self.view.layoutIfNeeded()
                 print(self.messageViewBotton.constant)
             }) { (completed) in
-//                self.tableView.scrollToBottomRow()
+
             }
         }
     }

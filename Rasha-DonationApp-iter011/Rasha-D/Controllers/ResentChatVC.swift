@@ -31,6 +31,8 @@ class RecentChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                                 self.tableView.reloadData()
                             }
                         }
+                    } else {
+                      print(error?.localizedDescription)
                     }
                 }
             }
@@ -46,7 +48,7 @@ class RecentChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     
-    // MARK: - Table view data source
+    // MARK: - Table view data source & delegate
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,10 +62,10 @@ class RecentChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatUser = ChatUser(name : recentChats[indexPath.row].name , id: recentChats[indexPath.row].id)
-        performSegue(withIdentifier: "goToChatVC", sender: chatUser)
+        performSegue(withIdentifier: SegueIdentifires.goToChatVC, sender: chatUser)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToChatVC" {
+        if segue.identifier == SegueIdentifires.goToChatVC {
             let nextVC = segue.destination as! ChatVC
             nextVC.user = sender as? ChatUser
         }
@@ -71,31 +73,43 @@ class RecentChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     func getRecentChats(completion : @escaping ([String])->()) {
-        Firestore.firestore().collection("Messages").addSnapshotListener { snapshot, erroe in
+        Firestore.firestore().collection("Messages").addSnapshotListener { snapshot, error in
+          if error == nil {
             if let value = snapshot?.documents {
-                var tempUsers = [String]()
-                for i in value {
-                    let data = i.data()
-                    print(data)
-                    let sender = data ["sender"] as? String
-                    let reciever = data["reciever"] as? String
-                    guard let currentUserId = Auth.auth().currentUser?.uid else {return}
-                    
-                    if (sender == currentUserId) || (reciever == currentUserId) {
-                        if sender != currentUserId {
-                            if !tempUsers.contains(sender!) {
-                                tempUsers.append(sender!)
-                            }
-                        }
-                        if reciever != currentUserId {
-                            if !tempUsers.contains(reciever!) {
-                                tempUsers.append(reciever!)
-                            }
-                        }
+              var tempUsers = [String]()
+              for i in value {
+                let data = i.data()
+                
+                let sender = data ["sender"] as? String
+                let reciever = data["reciever"] as? String
+                
+                guard let currentUserId = Auth.auth().currentUser?.uid else {return}
+                
+                if (sender == currentUserId) || (reciever == currentUserId) {
+                  if sender != currentUserId {
+                    if !tempUsers.contains(sender!) {
+                      tempUsers.append(sender!)
                     }
+                  }
+                  
+                  if reciever != currentUserId {
+                    if !tempUsers.contains(reciever!) {
+                      tempUsers.append(reciever!)
+                    }
+                  }
                 }
-                completion(tempUsers)
+                
+              }
+              
+              completion(tempUsers)
+              
+              
+              
             }
+          } else {
+            print(error?.localizedDescription)
+          }
+          
         }
     }
 }

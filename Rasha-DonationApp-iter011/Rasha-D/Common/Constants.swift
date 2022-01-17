@@ -15,3 +15,10 @@ struct Colors {
     static let messageTextView = UIColor(named: "messageTextView")
 }
 
+struct SegueIdentifires {
+  static var goToChatVC = "goToChatVC"
+  static var showCitiesAndCategories = "showCitiesAndCategories"
+  static var showDetailsVC = "showDetailsVC"
+  static var requestDetails = "requestDetails"
+}
+

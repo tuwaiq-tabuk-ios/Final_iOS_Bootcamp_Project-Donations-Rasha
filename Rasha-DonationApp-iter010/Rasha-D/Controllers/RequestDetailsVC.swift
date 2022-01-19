@@ -47,7 +47,7 @@ class RequestDetailsVC: UIViewController {
         
         if let request = request {
             guard let id = request.userID else {return}
-            Firestore.firestore().collection("Users").document(id).getDocument { [self] snapshot, error in
+            Firestore.firestore().collection(FSCollectionReference.users.rawValue).document(id).getDocument { [self] snapshot, error in
                 if error == nil {
                     if let data = snapshot?.data() {
                         let username = data["name"] as? String

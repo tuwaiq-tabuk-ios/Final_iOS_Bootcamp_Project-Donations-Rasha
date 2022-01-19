@@ -29,7 +29,7 @@ class RequestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func getAllRequests() {
-        Firestore.firestore().collection("Requests").order(by: "timestamp", descending: true).addSnapshotListener { snapshot, error in
+        Firestore.firestore().collection(FSCollectionReference.requests.rawValue).order(by: "timestamp", descending: true).addSnapshotListener { snapshot, error in
             self.requests.removeAll()
             if error == nil {
                 if let value = snapshot?.documents {
@@ -77,7 +77,7 @@ class RequestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func alertAction(id : String) {
         let alert = UIAlertController(title: "Alert".localize(), message: "Are you sure ! ".localize(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ok".localize(), style: .destructive, handler: { action in
-            Firestore.firestore().collection("Requests").document(id).delete()
+            Firestore.firestore().collection(FSCollectionReference.requests.rawValue).document(id).delete()
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localize(), style: .default, handler: { action in }))
         self.present(alert, animated: true, completion: nil)

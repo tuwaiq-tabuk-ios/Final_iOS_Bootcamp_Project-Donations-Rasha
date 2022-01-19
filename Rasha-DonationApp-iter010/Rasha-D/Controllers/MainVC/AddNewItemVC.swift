@@ -86,7 +86,7 @@ class AddNewItemVC: UIViewController  {
     @IBAction func sendButtonAction(_ sender: UIButton) {
         var userName = String()
         guard let userID = Auth.auth().currentUser?.uid else {return}
-        Firestore.firestore().collection("Users").document(userID).getDocument { snapshot, error in
+      Firestore.firestore().collection(FSCollectionReference.users.rawValue).document(userID).getDocument { snapshot, error in
             if error == nil {
                 if let value = snapshot?.data() {
                     print(value)
@@ -160,7 +160,7 @@ class AddNewItemVC: UIViewController  {
                     storageRef.downloadURL { [self] url, error in
                         if error == nil {
                             let imageUrl = url?.absoluteString
-                            Firestore.firestore().collection("Items").document(UUID().uuidString).setData([
+                          Firestore.firestore().collection(FSCollectionReference.items.rawValue).document(UUID().uuidString).setData([
                                 "imageUrl" : imageUrl,
                                 "title" : titelTextFild.text!,
                                 "city" : selectedCity,

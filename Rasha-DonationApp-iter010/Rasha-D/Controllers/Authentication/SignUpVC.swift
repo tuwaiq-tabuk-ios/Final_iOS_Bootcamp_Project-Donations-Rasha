@@ -74,30 +74,14 @@ class SignUpVC: UIViewController {
             return
           }
           
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { result, error in
-                if error == nil {
-                    self.errorLabel.isHidden = true
-                    guard let userID = result?.user.uid else {return}
-                    
-                    Firestore.firestore().collection("Users").document(userID).setData([
-                        "name" : self.nameTextField.text!,
-                        "email" : self.emailTextField.text!
-                    ]) { error in
-                        
-                        // Go to mainVC
-                        
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
-                        vc?.modalPresentationStyle = .fullScreen
-                        vc?.modalTransitionStyle = .crossDissolve
-                        DispatchQueue.main.async {
-                            self.present(vc!, animated: true, completion: nil)
-                        }
-                    }
-                } else{
-                    self.errorLabel.isHidden = false
-                    self.errorLabel.text = FirError.Error(Code: error!._code)
-                }
+          FSUserManager.shared.signUpUser(email: emailTextField.text!, password: passwordTextField.text!, name: nameTextField.text!, errorLabel: errorLabel) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
+            vc?.modalPresentationStyle = .fullScreen
+            vc?.modalTransitionStyle = .crossDissolve
+            DispatchQueue.main.async {
+                self.present(vc!, animated: true, completion: nil)
             }
+          }
         }
     }
     

@@ -23,7 +23,7 @@ class RecentChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         getRecentChats { users in
             self.recentChats.removeAll()
             for userID in users {
-                Firestore.firestore().collection("Users").document(userID).getDocument { snapshot, error in
+              Firestore.firestore().collection(FSCollectionReference.users.rawValue).document(userID).getDocument { snapshot, error in
                     if error == nil {
                         if let value = snapshot?.data() {
                             if let name = value["name"] as? String {
@@ -73,7 +73,7 @@ class RecentChatsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     func getRecentChats(completion : @escaping ([String])->()) {
-        Firestore.firestore().collection("Messages").addSnapshotListener { snapshot, error in
+      Firestore.firestore().collection(FSCollectionReference.messages.rawValue).addSnapshotListener { snapshot, error in
           if error == nil {
             if let value = snapshot?.documents {
               var tempUsers = [String]()

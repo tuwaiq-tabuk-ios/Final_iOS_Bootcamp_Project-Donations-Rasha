@@ -31,7 +31,7 @@
 		DA5A615E2781046200B5A364 /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA5A615C2781046200B5A364 /* RequestCell.xib */; };
 		DA68C8B52778A67E007814D7 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA68C8B32778A67D007814D7 /* ChatCell.swift */; };
 		DA68C8B62778A67E007814D7 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA68C8B42778A67D007814D7 /* ChatCell.xib */; };
-		DA6B8AE62770CF8F00DA69D4 /* UserValidationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */; };
+		DA6B8AE62770CF8F00DA69D4 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B8AE52770CF8F00DA69D4 /* WelcomeVC.swift */; };
 		DA8092F72768F82F0050F394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8092F62768F82F0050F394 /* AppDelegate.swift */; };
 		DA8092F92768F82F0050F394 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8092F82768F82F0050F394 /* SceneDelegate.swift */; };
 		DA8092FB2768F82F0050F394 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8092FA2768F82F0050F394 /* SignInVC.swift */; };
@@ -44,6 +44,8 @@
 		DA80931D2768F8300050F394 /* Rasha_DUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80931C2768F8300050F394 /* Rasha_DUITestsLaunchTests.swift */; };
 		DA80932C2768FD600050F394 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80932B2768FD600050F394 /* SignUpVC.swift */; };
 		DA9549BE2773CA9300DBB418 /* itemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9549BD2773CA9300DBB418 /* itemDetailVC.swift */; };
+		DAA7140F27974F7B001A2762 /* FSUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7140E27974F7B001A2762 /* FSUserManager.swift */; };
+		DAA7141227974FB0001A2762 /* FSCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7141127974FB0001A2762 /* FSCollectionReference.swift */; };
 		DAD12606278473AA004C59DC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD12605278473AA004C59DC /* Item.swift */; };
 		DAD12608278473E6004C59DC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD12607278473E6004C59DC /* Message.swift */; };
 		DAD1260A27847430004C59DC /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1260927847430004C59DC /* ChatUser.swift */; };
@@ -109,7 +111,7 @@
 		DA5A615C2781046200B5A364 /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestCell.xib; sourceTree = "<group>"; };
 		DA68C8B32778A67D007814D7 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		DA68C8B42778A67D007814D7 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
-		DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationVC.swift; sourceTree = "<group>"; };
+		DA6B8AE52770CF8F00DA69D4 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		DA8092F32768F82F0050F394 /* Rasha-D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rasha-D.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8092F62768F82F0050F394 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA8092F82768F82F0050F394 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,8 @@
 		DA80931C2768F8300050F394 /* Rasha_DUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rasha_DUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DA80932B2768FD600050F394 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		DA9549BD2773CA9300DBB418 /* itemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemDetailVC.swift; sourceTree = "<group>"; };
+		DAA7140E27974F7B001A2762 /* FSUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUserManager.swift; sourceTree = "<group>"; };
+		DAA7141127974FB0001A2762 /* FSCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FSCollectionReference.swift; path = ../../../../../../../Desktop/FSCollectionReference.swift; sourceTree = "<group>"; };
 		DAD12605278473AA004C59DC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		DAD12607278473E6004C59DC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		DAD1260927847430004C59DC /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 		DA8092F52768F82F0050F394 /* Rasha-D */ = {
 			isa = PBXGroup;
 			children = (
+				DAA7140D27974F27001A2762 /* Managers */,
 				DAF926BC2794CA8F00585D33 /* CustomViews */,
 				DA0AA1DD2786252400BB7C82 /* Common */,
 				DA8092F62768F82F0050F394 /* AppDelegate.swift */,
@@ -289,6 +294,23 @@
 			path = "Rasha-DUITests";
 			sourceTree = "<group>";
 		};
+		DAA7140D27974F27001A2762 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DAA7140E27974F7B001A2762 /* FSUserManager.swift */,
+				DAA7141027974F82001A2762 /* Helper_Managers */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DAA7141027974F82001A2762 /* Helper_Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DAA7141127974FB0001A2762 /* FSCollectionReference.swift */,
+			);
+			path = Helper_Managers;
+			sourceTree = "<group>";
+		};
 		DACB31E62790300F00142D1D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,7 +333,7 @@
 			children = (
 				DA80932B2768FD600050F394 /* SignUpVC.swift */,
 				DA8092FA2768F82F0050F394 /* SignInVC.swift */,
-				DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */,
+				DA6B8AE52770CF8F00DA69D4 /* WelcomeVC.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -630,10 +652,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA7141227974FB0001A2762 /* FSCollectionReference.swift in Sources */,
 				DAD8C48F2783962B00789175 /* FireError.swift in Sources */,
 				DA5A615A2781008E00B5A364 /* RequestsVC.swift in Sources */,
 				DAF926C12794CE4100585D33 /* UIViewController+Ext.swift in Sources */,
 				DA5A615D2781046200B5A364 /* RequestCell.swift in Sources */,
+				DAA7140F27974F7B001A2762 /* FSUserManager.swift in Sources */,
 				DA47C9A5277FDAC600BBF567 /* CategoryCell.swift in Sources */,
 				DAD12606278473AA004C59DC /* Item.swift in Sources */,
 				DA174DAE2779E45200F86646 /* ResentChatCell.swift in Sources */,
@@ -659,7 +683,7 @@
 				DAD1260C2784745D004C59DC /* Category.swift in Sources */,
 				DA68C8B52778A67E007814D7 /* ChatCell.swift in Sources */,
 				DAD1260E27847482004C59DC /* Request.swift in Sources */,
-				DA6B8AE62770CF8F00DA69D4 /* UserValidationVC.swift in Sources */,
+				DA6B8AE62770CF8F00DA69D4 /* WelcomeVC.swift in Sources */,
 				DAF926C52794CEBA00585D33 /* String+Ext.swift in Sources */,
 				DA9549BE2773CA9300DBB418 /* itemDetailVC.swift in Sources */,
 			);

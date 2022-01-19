@@ -12,6 +12,7 @@ import IQKeyboardManagerSwift
 class ChatVC: UIViewController {
     
     @IBOutlet weak var messageViewBotton: NSLayoutConstraint!
+  @IBOutlet weak var messageTextViewHeight: NSLayoutConstraint!
     
     var messages = [Message]()
     var user : ChatUser?
@@ -45,7 +46,7 @@ class ChatVC: UIViewController {
         keyboardSetting()
         setGradientBackground()
         
-        messageTextView.layer.cornerRadius = 10
+      messageTextView.layer.cornerRadius = 17.5
         messageTextView.delegate = self
         
         
@@ -79,11 +80,15 @@ class ChatVC: UIViewController {
         if let message = messageTextView.text, message.isEmpty == false {
             // send message
             let message : [String : Any] = ["sender" : senderID, "reciever" : recieverId , "date" : currentDate, "message" : message , "timestamp" : timestamp , "time" : currentTime]
-            Firestore.firestore().collection("Messages").document(UUID().uuidString).setData(message) { error in
+            Firestore.firestore().collection(FSCollectionReference.messages.rawValue).document(UUID().uuidString).setData(message) { error in
                 if error == nil {
                     print("Message Successfully sent")
                     self.messageTextView.text = ""
                     self.chatTabelView.scrollToBottomRow()
+                  self.messageTextViewHeight.constant = 35
+                  UIView.animate(withDuration: 0.2) {
+                    self.view.layoutIfNeeded()
+                  }
                 }
             }
         }
@@ -93,7 +98,7 @@ class ChatVC: UIViewController {
     func getMessages() {
         guard let currentUserID = Auth.auth().currentUser?.uid else {return}
         guard let userId = user?.id else {return}
-        Firestore.firestore().collection("Messages").addSnapshotListener { snapshot, error in
+        Firestore.firestore().collection(FSCollectionReference.messages.rawValue).addSnapshotListener { snapshot, error in
             self.messages.removeAll()
             if let value = snapshot?.documents {
                 for i in value {
@@ -108,7 +113,6 @@ class ChatVC: UIViewController {
                     if (sender == currentUserID && reciever == userId) || (sender == userId && reciever == currentUserID) {
                         self.messages.append(Message(sender: sender, reciever: reciever, message: message, date: date , timestamp: timestamp, time: time))
                     }
-                    
                 }
                 self.messages = self.messages.sorted(by: {$0.timestamp! < $1.timestamp!})
                 self.chatTabelView.reloadData()
@@ -202,6 +206,28 @@ extension ChatVC : UITextViewDelegate {
             textView.textColor = .lightGray
         }
     }
+  
+  func textViewDidChange(_ textView: UITextView) {
+    let size = CGSize(width: textView.frame.width, height: textView.frame.height)
+    let estimatedSize = textView.sizeThatFits(size)
+    
+    textView.constraints.forEach { constraint in
+      if constraint.firstAttribute == .height {
+        if constraint.constant < 150 {
+          constraint.constant = estimatedSize.height
+        }
+        
+        if textView.text == "" {
+          constraint.constant = 35
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+          self.view.layoutIfNeeded()
+        }
+      }
+    }
+  }
+  
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)

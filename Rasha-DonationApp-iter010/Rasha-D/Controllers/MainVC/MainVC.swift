@@ -13,8 +13,7 @@ class MainVC : UIViewController   {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var itemsTableView: UITableView!
-    
-    
+  
     var items = [Item]()
     var filterdItmes = [Item]()
     var me = String()
@@ -33,6 +32,7 @@ class MainVC : UIViewController   {
         
     }
     
+  // show no content label in tableView
     let noContentLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +43,7 @@ class MainVC : UIViewController   {
         return label
     }()
     
+  // add no content label to itemsTableView
     func showContentLabel() {
         itemsTableView.addSubview(noContentLabel)
         
@@ -54,6 +55,7 @@ class MainVC : UIViewController   {
         ])
     }
     
+  // get items from firestore depends on categoryVC Collection
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if CategoryCollectionVC.selectedCategory != "" {
@@ -64,6 +66,7 @@ class MainVC : UIViewController   {
         }
     }
     
+  // sign out from firestore and go to signInVC
     @IBAction func exetButtonAction(_ sender: UIBarButtonItem) {
         try?  Auth.auth().signOut()
         
@@ -77,6 +80,7 @@ class MainVC : UIViewController   {
         
     }
     
+  // get all items data
     func getItemsData() {
       Firestore.firestore().collection(FSCollectionReference.items.rawValue).order(by: "timestamp", descending: true).addSnapshotListener { [self] snapshot, error in
             if error == nil {
@@ -110,6 +114,7 @@ class MainVC : UIViewController   {
         }
     }
     
+  // get items data for specific category
     func getSpecificCategoryData() {
       Firestore.firestore().collection(FSCollectionReference.items.rawValue).order(by: "timestamp", descending: true).addSnapshotListener { [self] snapshot, error in
             if error == nil {
@@ -149,8 +154,6 @@ class MainVC : UIViewController   {
 
 //MARK: - SearchBar Delegate & DataSource
 extension MainVC : UITableViewDataSource , UITableViewDelegate {
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
             return filterdItmes.count
@@ -162,50 +165,32 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = itemsTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemCell
 
-        if isSearching {
-            let item = filterdItmes[indexPath.row]
-            
-            cell.itemLabel.text = item.title
-            cell.userLabel.text = item.username
-            cell.cityLabel.text = item.city
-            cell.dateLabel.text = item.date
-            
-            if let imageUrlIsString = item.imageUrl {
-                if let imageURL = URL(string: imageUrlIsString){
-                    cell.itemImageView.sd_setImage(with:  imageURL) { image, error, cache, url in
-                        if error == nil {
-                            DispatchQueue.main.async {
-                                cell.itemImageView.image = image
-                            }
-                        }
-                    }
-                }
-                
-            }
-
-        } else {
-            let item = items[indexPath.row]
-            
-            cell.itemLabel.text = item.title
-            cell.userLabel.text = item.username
-            cell.cityLabel.text = item.city
-            cell.dateLabel.text = item.date
-            
-            if let imageUrlIsString = item.imageUrl {
-                if let imageURL = URL(string: imageUrlIsString){
-                    cell.itemImageView.sd_setImage(with:  imageURL) { image, error, cache, url in
-                        if error == nil {
-                            DispatchQueue.main.async {
-                                cell.itemImageView.image = image
-                            }
-                        }
-                    }
-                }
-                
-            }
-        }
+      /*
+       item variable will hold items value depends on isSearching Bool status
+        - if isSearching == true -> item = filterdItmes[indexPath.row]
+        - else item = items[indexPath.row]
+       */
+      
+      let item = isSearching == true ? filterdItmes[indexPath.row] : items[indexPath.row]
+      
+      cell.itemLabel.text = item.title
+      cell.userLabel.text = item.username
+      cell.cityLabel.text = item.city
+      cell.dateLabel.text = item.date
+      
+      if let imageUrlIsString = item.imageUrl {
+          if let imageURL = URL(string: imageUrlIsString){
+              cell.itemImageView.sd_setImage(with:  imageURL) { image, error, cache, url in
+                  if error == nil {
+                      DispatchQueue.main.async {
+                          cell.itemImageView.image = image
+                      }
+                  }
+              }
+          }
+          
+      }
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -214,12 +199,6 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
         } else {
             performSegue(withIdentifier: SegueIdentifires.showDetailsVC, sender: items[indexPath.row])
         }
-        
-        isSearching = false
-        searchBar.text = ""
-        view.endEditing(true)
-        self.itemsTableView.reloadData()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -260,24 +239,6 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
 
 //MARK: - SearchBar Delegate
 extension MainVC : UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-      print("searchBarTextDidBeginEditing")
-        isSearching = true
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-      print("searchBarTextDidEndEditing")
-        isSearching = false
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-      print("searchBarCancelButtonClicked")
-        isSearching = false
-        searchBar.text = ""
-        view.endEditing(true)
-        self.itemsTableView.reloadData()
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
       print("textDidChange")
         if searchText == "" {

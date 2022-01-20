@@ -14,9 +14,15 @@ class WelcomeVC: UIViewController {
         super.viewDidLoad()
         
         setGradientBackground()
+      
+      /*
+       check :
+       if currentUser ID = nil -> Go To SignInVC
+       if currentUser ID != nil -> Go To MainVC
+       */
         
         if Auth.auth().currentUser?.uid == nil {
-            //go to sighn in
+            // Go To Sign In
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "signInVC")
             vc?.modalPresentationStyle = .fullScreen
             vc?.modalTransitionStyle = .crossDissolve
@@ -25,7 +31,7 @@ class WelcomeVC: UIViewController {
             }
             
         }else{
-            // go to MainVC
+            // Go To MainVC
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
             vc?.modalPresentationStyle = .fullScreen
             vc?.modalTransitionStyle = .crossDissolve

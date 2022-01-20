@@ -7,14 +7,16 @@
 
 import UIKit
 
+// Colors for Dark/Light Mode
 struct Colors {
-    static let darkGrayWhite = UIColor(named: "titles")
-    static let lightGrayWhite = UIColor(named: "lightGrayWhite")
-    static let senderMessageView = UIColor(named: "senderMessageView")
-    static let recieverMessageView = UIColor(named: "recieverMessageView")
-    static let messageTextView = UIColor(named: "messageTextView")
+  static let darkGrayWhite = UIColor(named: "titles")
+  static let lightGrayWhite = UIColor(named: "lightGrayWhite")
+  static let senderMessageView = UIColor(named: "senderMessageView")
+  static let recieverMessageView = UIColor(named: "recieverMessageView")
+  static let messageTextView = UIColor(named: "messageTextView")
 }
 
+// Segue Identifiers
 struct SegueIdentifires {
   static var goToChatVC = "goToChatVC"
   static var showCitiesAndCategories = "showCitiesAndCategories"

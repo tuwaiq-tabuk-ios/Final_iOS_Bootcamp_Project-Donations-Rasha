@@ -8,6 +8,7 @@
 import Foundation
 
 extension String {
+  // return translated string depends on the device language
     func localize() -> String {
         return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
     }

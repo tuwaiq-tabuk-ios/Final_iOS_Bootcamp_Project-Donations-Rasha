@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIView {
+  // create UIView shake animation 
     func shakeView() {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.09

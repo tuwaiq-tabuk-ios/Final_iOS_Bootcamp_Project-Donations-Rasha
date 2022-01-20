@@ -20,7 +20,7 @@ class WelcomeVC: UIViewController {
        if currentUser ID = nil -> Go To SignInVC
        if currentUser ID != nil -> Go To MainVC
        */
-        
+      
         if Auth.auth().currentUser?.uid == nil {
             // Go To Sign In
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "signInVC")

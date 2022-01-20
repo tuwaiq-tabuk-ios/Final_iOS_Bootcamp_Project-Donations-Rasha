@@ -24,49 +24,42 @@ class SignInVC: UIViewController {
         
         setGradientBackground()
         SetupUI()
-        errorLabel.alpha = 0
+        errorLabel.isHidden = true
  
     }
     
+  
+  var emailSuccess = false
+  var passwordSuccess = false
     
-    var emaileSuccess = false
-    var passwordSuccess = false
+  @IBAction func singInButton(_ sender: UIButton) {
     
-    @IBAction func singInButton(_ sender: UIButton) {
-        
-        if let email = emailTextField.text, email.isEmpty == false {
-            emaileSuccess = true
-        } else {
-            emaileSuccess = false
-            emailTextField.shakeView()
-        }
-        
-        
-        if let password = passwordTextField.text, password.isEmpty == false {
-            passwordSuccess = true
-        } else {
-            passwordSuccess = false
-            passwordTextField.shakeView()
-        }
-        
-        if emaileSuccess == true , passwordSuccess == true {
-            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { result, error in
-                if error == nil {
-                    self.errorLabel.alpha = 0
-                    //go to mainVC
-                    print("go to MainVC")
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
-                    vc?.modalPresentationStyle = .fullScreen
-                    vc?.modalTransitionStyle = .crossDissolve
-                    self.present(vc!, animated: true, completion: nil)
-                } else {
-                    //handle error by show error massage
-                    self.errorLabel.alpha = 1
-                    self.errorLabel.text = FirError.Error(Code: error!._code) //error?.localizedDescription
-                }
-            }
-        }
+    if let email = emailTextField.text, email.isEmpty == false {
+      emailSuccess = true
+    } else {
+      emailSuccess = false
+      emailTextField.shakeView()
     }
+    
+    
+    if let password = passwordTextField.text, password.isEmpty == false {
+      passwordSuccess = true
+    } else {
+      passwordSuccess = false
+      passwordTextField.shakeView()
+    }
+    
+    if emailSuccess == true , passwordSuccess == true {
+      FSUserManager.shared.signInUser(email: emailTextField.text!, password: passwordTextField.text!, errorLabel: errorLabel) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
+        vc?.modalPresentationStyle = .fullScreen
+        vc?.modalTransitionStyle = .crossDissolve
+        DispatchQueue.main.async {
+          self.present(vc!, animated: true, completion: nil)
+        }
+      }
+    }
+  }
     
     
     

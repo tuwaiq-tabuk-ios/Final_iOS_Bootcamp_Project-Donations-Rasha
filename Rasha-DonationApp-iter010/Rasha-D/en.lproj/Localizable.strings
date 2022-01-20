@@ -60,3 +60,7 @@
 " wrong email " = " wrong email ";
 " wrong password " = " wrong password ";
 " unknown error " = " unknown error ";
+
+//SignUpVC
+
+"Passwords Not Match" = "Passwords Not Match";

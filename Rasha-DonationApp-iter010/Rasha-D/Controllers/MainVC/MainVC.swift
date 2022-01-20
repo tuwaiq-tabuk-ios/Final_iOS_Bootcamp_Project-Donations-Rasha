@@ -78,7 +78,7 @@ class MainVC : UIViewController   {
     }
     
     func getItemsData() {
-        Firestore.firestore().collection("Items").order(by: "timestamp", descending: true).addSnapshotListener { [self] snapshot, error in
+      Firestore.firestore().collection(FSCollectionReference.items.rawValue).order(by: "timestamp", descending: true).addSnapshotListener { [self] snapshot, error in
             if error == nil {
                 self.items.removeAll()
                 
@@ -111,7 +111,7 @@ class MainVC : UIViewController   {
     }
     
     func getSpecificCategoryData() {
-        Firestore.firestore().collection("Items").order(by: "timestamp", descending: true).addSnapshotListener { [self] snapshot, error in
+      Firestore.firestore().collection(FSCollectionReference.items.rawValue).order(by: "timestamp", descending: true).addSnapshotListener { [self] snapshot, error in
             if error == nil {
                 self.items.removeAll()
                 if let value = snapshot?.documents {
@@ -210,9 +210,9 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isSearching {
-            performSegue(withIdentifier: "showDetailsVC", sender: filterdItmes[indexPath.row])
+          performSegue(withIdentifier: SegueIdentifires.showDetailsVC, sender: filterdItmes[indexPath.row])
         } else {
-            performSegue(withIdentifier: "showDetailsVC", sender: items[indexPath.row])
+            performSegue(withIdentifier: SegueIdentifires.showDetailsVC, sender: items[indexPath.row])
         }
         
         isSearching = false
@@ -223,7 +223,7 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetailsVC" {
+        if segue.identifier == SegueIdentifires.showDetailsVC {
             let nextVC = segue.destination as! itemDetailVC
             nextVC.passedItem = sender as? Item
         }
@@ -243,7 +243,7 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
     func alertAction(id : String) {
         let alert = UIAlertController(title: "Alert".localize(), message: "Are you sure ! ".localize(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ok".localize(), style: .destructive, handler: { action in
-            Firestore.firestore().collection("Items").document(id).delete()
+          Firestore.firestore().collection(FSCollectionReference.items.rawValue).document(id).delete()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in }))
         self.present(alert, animated: true, completion: nil)
@@ -261,14 +261,17 @@ extension MainVC : UITableViewDataSource , UITableViewDelegate {
 //MARK: - SearchBar Delegate
 extension MainVC : UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+      print("searchBarTextDidBeginEditing")
         isSearching = true
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+      print("searchBarTextDidEndEditing")
         isSearching = false
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+      print("searchBarCancelButtonClicked")
         isSearching = false
         searchBar.text = ""
         view.endEditing(true)
@@ -276,6 +279,7 @@ extension MainVC : UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+      print("textDidChange")
         if searchText == "" {
             isSearching = false
             self.itemsTableView.reloadData()

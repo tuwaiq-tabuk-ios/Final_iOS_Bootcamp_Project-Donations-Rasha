@@ -47,7 +47,7 @@ class RequestDetailsVC: UIViewController {
         
         if let request = request {
             guard let id = request.userID else {return}
-            Firestore.firestore().collection("Users").document(id).getDocument { [self] snapshot, error in
+            Firestore.firestore().collection(FSCollectionReference.users.rawValue).document(id).getDocument { [self] snapshot, error in
                 if error == nil {
                     if let data = snapshot?.data() {
                         let username = data["name"] as? String
@@ -75,11 +75,11 @@ class RequestDetailsVC: UIViewController {
     
     
     @IBAction func directMessageAction(_ sender : UIButton) {
-        performSegue(withIdentifier: "goToChatVC", sender: nil)
+        performSegue(withIdentifier: SegueIdentifires.goToChatVC, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToChatVC" {
+        if segue.identifier == SegueIdentifires.goToChatVC {
             let nextVC = segue.destination as! ChatVC
             nextVC.user = ChatUser(name: chatUser?.name, id: chatUser?.id)
             

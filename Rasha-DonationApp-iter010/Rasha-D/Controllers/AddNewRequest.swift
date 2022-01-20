@@ -62,7 +62,7 @@ class AddNewRequest: UIViewController {
             
             let requestID = UUID().uuidString
             guard let userID = Auth.auth().currentUser?.uid else {return}
-            Firestore.firestore().collection("Requests").document(requestID).setData([
+            Firestore.firestore().collection(FSCollectionReference.requests.rawValue).document(requestID).setData([
                 "requestID" : requestID,
                 "userID" : userID,
                 "requestText" : descriptionTextView.text!,

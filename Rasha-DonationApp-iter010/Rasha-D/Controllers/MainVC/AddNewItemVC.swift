@@ -23,7 +23,7 @@ class AddNewItemVC: UIViewController  {
     
     
     @IBAction func categoryButtonAction(_ sender: UIButton) {
-        performSegue(withIdentifier: "showCitiesAndCategories", sender: "category")
+      performSegue(withIdentifier: SegueIdentifires.showCitiesAndCategories, sender: "category")
     }
     
     
@@ -65,11 +65,11 @@ class AddNewItemVC: UIViewController  {
     @IBAction func cityButtonAction(_ sender: Any) {
         
         
-        performSegue(withIdentifier: "showCitiesAndCategories", sender: "city".localize())
+      performSegue(withIdentifier: SegueIdentifires.showCitiesAndCategories, sender: "city".localize())
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCitiesAndCategories" {
+        if segue.identifier == SegueIdentifires.showCitiesAndCategories {
             let destination = segue.destination as! citiesAndCategoriesVC
             destination.delegate = self
             destination.selectedButton = sender as! String
@@ -86,7 +86,7 @@ class AddNewItemVC: UIViewController  {
     @IBAction func sendButtonAction(_ sender: UIButton) {
         var userName = String()
         guard let userID = Auth.auth().currentUser?.uid else {return}
-        Firestore.firestore().collection("Users").document(userID).getDocument { snapshot, error in
+      Firestore.firestore().collection(FSCollectionReference.users.rawValue).document(userID).getDocument { snapshot, error in
             if error == nil {
                 if let value = snapshot?.data() {
                     print(value)
@@ -154,13 +154,13 @@ class AddNewItemVC: UIViewController  {
             
             let storageRef = Storage.storage().reference().child(UUID().uuidString)
             guard let itemImageData = itemImageView.image?.pngData() else {return}
-            let timestamp = String(Date().timeIntervalSince1970)
+            let timestamp = Date().timeIntervalSince1970
             storageRef.putData(itemImageData, metadata: nil) { meta, error in
                 if error == nil {
                     storageRef.downloadURL { [self] url, error in
                         if error == nil {
                             let imageUrl = url?.absoluteString
-                            Firestore.firestore().collection("Items").document(UUID().uuidString).setData([
+                          Firestore.firestore().collection(FSCollectionReference.items.rawValue).document(UUID().uuidString).setData([
                                 "imageUrl" : imageUrl,
                                 "title" : titelTextFild.text!,
                                 "city" : selectedCity,

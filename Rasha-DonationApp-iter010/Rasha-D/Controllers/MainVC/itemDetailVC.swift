@@ -57,11 +57,11 @@ class itemDetailVC: UIViewController {
     }
     
     @IBAction func directMessageAction(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToChatVC", sender: nil)
+      performSegue(withIdentifier: SegueIdentifires.goToChatVC, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToChatVC" {
+        if segue.identifier == SegueIdentifires.goToChatVC {
             let nextVC = segue.destination as! ChatVC
             nextVC.user = ChatUser(name: passedItem?.username, id: passedItem?.userID)
         }

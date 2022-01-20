@@ -10,7 +10,7 @@
 		62711273FFA29F3A8D10D8AB /* Pods_Rasha_D_Rasha_DUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A877675D0390571E428DE14A /* Pods_Rasha_D_Rasha_DUITests.framework */; };
 		9EC7B2ADFB1D37C82B9FBE7B /* Pods_Rasha_DTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD98E64762CB7C94C1058533 /* Pods_Rasha_DTests.framework */; };
 		D654188201411D2B0F999A71 /* Pods_Rasha_D.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 806A73B997BBA85E715A1349 /* Pods_Rasha_D.framework */; };
-		DA0AA1DF2786253A00BB7C82 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AA1DE2786253A00BB7C82 /* Colors.swift */; };
+		DA0AA1DF2786253A00BB7C82 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AA1DE2786253A00BB7C82 /* Constants.swift */; };
 		DA0F21AC278241CB00D744FB /* RequestDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F21AB278241CB00D744FB /* RequestDetailsVC.swift */; };
 		DA14B60E277B2C4A007A4620 /* citiesAndCategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14B60D277B2C4A007A4620 /* citiesAndCategoriesVC.swift */; };
 		DA174DAE2779E45200F86646 /* ResentChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA174DAC2779E45200F86646 /* ResentChatCell.swift */; };
@@ -31,7 +31,7 @@
 		DA5A615E2781046200B5A364 /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA5A615C2781046200B5A364 /* RequestCell.xib */; };
 		DA68C8B52778A67E007814D7 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA68C8B32778A67D007814D7 /* ChatCell.swift */; };
 		DA68C8B62778A67E007814D7 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA68C8B42778A67D007814D7 /* ChatCell.xib */; };
-		DA6B8AE62770CF8F00DA69D4 /* UserValidationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */; };
+		DA6B8AE62770CF8F00DA69D4 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B8AE52770CF8F00DA69D4 /* WelcomeVC.swift */; };
 		DA8092F72768F82F0050F394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8092F62768F82F0050F394 /* AppDelegate.swift */; };
 		DA8092F92768F82F0050F394 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8092F82768F82F0050F394 /* SceneDelegate.swift */; };
 		DA8092FB2768F82F0050F394 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8092FA2768F82F0050F394 /* SignInVC.swift */; };
@@ -44,13 +44,19 @@
 		DA80931D2768F8300050F394 /* Rasha_DUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80931C2768F8300050F394 /* Rasha_DUITestsLaunchTests.swift */; };
 		DA80932C2768FD600050F394 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80932B2768FD600050F394 /* SignUpVC.swift */; };
 		DA9549BE2773CA9300DBB418 /* itemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9549BD2773CA9300DBB418 /* itemDetailVC.swift */; };
+		DAA7140F27974F7B001A2762 /* FSUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7140E27974F7B001A2762 /* FSUserManager.swift */; };
+		DAA7141227974FB0001A2762 /* FSCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7141127974FB0001A2762 /* FSCollectionReference.swift */; };
 		DAD12606278473AA004C59DC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD12605278473AA004C59DC /* Item.swift */; };
 		DAD12608278473E6004C59DC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD12607278473E6004C59DC /* Message.swift */; };
 		DAD1260A27847430004C59DC /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1260927847430004C59DC /* ChatUser.swift */; };
 		DAD1260C2784745D004C59DC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1260B2784745D004C59DC /* Category.swift */; };
 		DAD1260E27847482004C59DC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1260D27847482004C59DC /* Request.swift */; };
-		DAD8C48F2783962B00789175 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8C48E2783962B00789175 /* Extensions.swift */; };
+		DAD8C48F2783962B00789175 /* FireError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8C48E2783962B00789175 /* FireError.swift */; };
 		DADC9E442775F39600147ADE /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADC9E432775F39600147ADE /* ChatVC.swift */; };
+		DAF926BE2794CAA500585D33 /* XTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF926BD2794CAA500585D33 /* XTextField.swift */; };
+		DAF926C12794CE4100585D33 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF926C02794CE4100585D33 /* UIViewController+Ext.swift */; };
+		DAF926C32794CE7F00585D33 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF926C22794CE7F00585D33 /* UIView+Ext.swift */; };
+		DAF926C52794CEBA00585D33 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF926C42794CEBA00585D33 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +86,7 @@
 		BD98E64762CB7C94C1058533 /* Pods_Rasha_DTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rasha_DTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C95305119AD483853EF14B9A /* Pods-Rasha-D-Rasha-DUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rasha-D-Rasha-DUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rasha-D-Rasha-DUITests/Pods-Rasha-D-Rasha-DUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D759F2FCA4642500335DE587 /* Pods-Rasha-DTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rasha-DTests.debug.xcconfig"; path = "Target Support Files/Pods-Rasha-DTests/Pods-Rasha-DTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DA0AA1DE2786253A00BB7C82 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DA0AA1DE2786253A00BB7C82 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DA0AA1E127863DBF00BB7C82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DA0AA1E227863E9D00BB7C82 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		DA0AA1E327863E9D00BB7C82 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -105,7 +111,7 @@
 		DA5A615C2781046200B5A364 /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestCell.xib; sourceTree = "<group>"; };
 		DA68C8B32778A67D007814D7 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		DA68C8B42778A67D007814D7 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
-		DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationVC.swift; sourceTree = "<group>"; };
+		DA6B8AE52770CF8F00DA69D4 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		DA8092F32768F82F0050F394 /* Rasha-D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rasha-D.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8092F62768F82F0050F394 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA8092F82768F82F0050F394 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,13 +128,19 @@
 		DA80931C2768F8300050F394 /* Rasha_DUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rasha_DUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DA80932B2768FD600050F394 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		DA9549BD2773CA9300DBB418 /* itemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemDetailVC.swift; sourceTree = "<group>"; };
+		DAA7140E27974F7B001A2762 /* FSUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUserManager.swift; sourceTree = "<group>"; };
+		DAA7141127974FB0001A2762 /* FSCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FSCollectionReference.swift; path = ../../../../../../../Desktop/FSCollectionReference.swift; sourceTree = "<group>"; };
 		DAD12605278473AA004C59DC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		DAD12607278473E6004C59DC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		DAD1260927847430004C59DC /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		DAD1260B2784745D004C59DC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DAD1260D27847482004C59DC /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		DAD8C48E2783962B00789175 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DAD8C48E2783962B00789175 /* FireError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireError.swift; sourceTree = "<group>"; };
 		DADC9E432775F39600147ADE /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		DAF926BD2794CAA500585D33 /* XTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XTextField.swift; sourceTree = "<group>"; };
+		DAF926C02794CE4100585D33 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		DAF926C22794CE7F00585D33 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		DAF926C42794CEBA00585D33 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,12 +194,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		DA0AA1DD2786252400BB7C82 /* Colors */ = {
+		DA0AA1DD2786252400BB7C82 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				DA0AA1DE2786253A00BB7C82 /* Colors.swift */,
+				DAF926BF2794CE2300585D33 /* Extensions */,
+				DA0AA1DE2786253A00BB7C82 /* Constants.swift */,
 			);
-			path = Colors;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		DA257F06276E2C7C0065E4F5 /* View */ = {
@@ -245,10 +258,12 @@
 		DA8092F52768F82F0050F394 /* Rasha-D */ = {
 			isa = PBXGroup;
 			children = (
-				DA0AA1DD2786252400BB7C82 /* Colors */,
+				DAA7140D27974F27001A2762 /* Managers */,
+				DAF926BC2794CA8F00585D33 /* CustomViews */,
+				DA0AA1DD2786252400BB7C82 /* Common */,
 				DA8092F62768F82F0050F394 /* AppDelegate.swift */,
 				DA8092F82768F82F0050F394 /* SceneDelegate.swift */,
-				DAD8C48E2783962B00789175 /* Extensions.swift */,
+				DAD8C48E2783962B00789175 /* FireError.swift */,
 				DA6B8AE92771074C00DA69D4 /* Model */,
 				DA257F06276E2C7C0065E4F5 /* View */,
 				DA6B8AEA2771077E00DA69D4 /* Controllers */,
@@ -279,6 +294,23 @@
 			path = "Rasha-DUITests";
 			sourceTree = "<group>";
 		};
+		DAA7140D27974F27001A2762 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DAA7140E27974F7B001A2762 /* FSUserManager.swift */,
+				DAA7141027974F82001A2762 /* Helper_Managers */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DAA7141027974F82001A2762 /* Helper_Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DAA7141127974FB0001A2762 /* FSCollectionReference.swift */,
+			);
+			path = Helper_Managers;
+			sourceTree = "<group>";
+		};
 		DACB31E62790300F00142D1D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,7 +333,7 @@
 			children = (
 				DA80932B2768FD600050F394 /* SignUpVC.swift */,
 				DA8092FA2768F82F0050F394 /* SignInVC.swift */,
-				DA6B8AE52770CF8F00DA69D4 /* UserValidationVC.swift */,
+				DA6B8AE52770CF8F00DA69D4 /* WelcomeVC.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -353,6 +385,24 @@
 				DA0F21AB278241CB00D744FB /* RequestDetailsVC.swift */,
 			);
 			name = RequestVC;
+			sourceTree = "<group>";
+		};
+		DAF926BC2794CA8F00585D33 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				DAF926BD2794CAA500585D33 /* XTextField.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		DAF926BF2794CE2300585D33 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DAF926C02794CE4100585D33 /* UIViewController+Ext.swift */,
+				DAF926C22794CE7F00585D33 /* UIView+Ext.swift */,
+				DAF926C42794CEBA00585D33 /* String+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -602,9 +652,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAD8C48F2783962B00789175 /* Extensions.swift in Sources */,
+				DAA7141227974FB0001A2762 /* FSCollectionReference.swift in Sources */,
+				DAD8C48F2783962B00789175 /* FireError.swift in Sources */,
 				DA5A615A2781008E00B5A364 /* RequestsVC.swift in Sources */,
+				DAF926C12794CE4100585D33 /* UIViewController+Ext.swift in Sources */,
 				DA5A615D2781046200B5A364 /* RequestCell.swift in Sources */,
+				DAA7140F27974F7B001A2762 /* FSUserManager.swift in Sources */,
 				DA47C9A5277FDAC600BBF567 /* CategoryCell.swift in Sources */,
 				DAD12606278473AA004C59DC /* Item.swift in Sources */,
 				DA174DAE2779E45200F86646 /* ResentChatCell.swift in Sources */,
@@ -614,12 +667,14 @@
 				DA0F21AC278241CB00D744FB /* RequestDetailsVC.swift in Sources */,
 				DA174DB12779E77D00F86646 /* ResentChatVC.swift in Sources */,
 				DA257F0C276E41660065E4F5 /* AddNewItemVC.swift in Sources */,
+				DAF926C32794CE7F00585D33 /* UIView+Ext.swift in Sources */,
 				DA8092FB2768F82F0050F394 /* SignInVC.swift in Sources */,
 				DA257F05276E02D50065E4F5 /* MainVC.swift in Sources */,
+				DAF926BE2794CAA500585D33 /* XTextField.swift in Sources */,
 				DA8092F72768F82F0050F394 /* AppDelegate.swift in Sources */,
 				DA47C9A8277FDCC900BBF567 /* CategoryCollectionVC.swift in Sources */,
 				DA8093012768F82F0050F394 /* Rasha_D.xcdatamodeld in Sources */,
-				DA0AA1DF2786253A00BB7C82 /* Colors.swift in Sources */,
+				DA0AA1DF2786253A00BB7C82 /* Constants.swift in Sources */,
 				DA14B60E277B2C4A007A4620 /* citiesAndCategoriesVC.swift in Sources */,
 				DA257F09276E2D210065E4F5 /* ItemCell.swift in Sources */,
 				DA5A61582780F5EA00B5A364 /* AddNewRequest.swift in Sources */,
@@ -628,7 +683,8 @@
 				DAD1260C2784745D004C59DC /* Category.swift in Sources */,
 				DA68C8B52778A67E007814D7 /* ChatCell.swift in Sources */,
 				DAD1260E27847482004C59DC /* Request.swift in Sources */,
-				DA6B8AE62770CF8F00DA69D4 /* UserValidationVC.swift in Sources */,
+				DA6B8AE62770CF8F00DA69D4 /* WelcomeVC.swift in Sources */,
+				DAF926C52794CEBA00585D33 /* String+Ext.swift in Sources */,
 				DA9549BE2773CA9300DBB418 /* itemDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

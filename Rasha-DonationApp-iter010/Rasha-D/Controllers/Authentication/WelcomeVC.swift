@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class UserValidationVC: UIViewController {
+class WelcomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

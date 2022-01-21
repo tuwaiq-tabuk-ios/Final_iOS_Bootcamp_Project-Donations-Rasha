@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 
+//MARK: - Convert Fierbase Errors To Readable Phrase For Users Depends On Error Code
 class FirError {
     static func Error(Code : Int) -> String {
         

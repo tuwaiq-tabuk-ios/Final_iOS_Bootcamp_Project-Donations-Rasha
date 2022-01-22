@@ -39,3 +39,8 @@ with basic information like the name of the good, the size (if there is any size
 ● When one good is selected the user can see the details of the good like an amplified image. 
 
 ●  When one good is selected the user also can get in contact with the donator throgh a private chat.
+Photo##
+
+https://user-images.githubusercontent.com/91871529/150333155-ec12638a-8baf-48cd-8a7e-8913439083a2.mp4
+
+

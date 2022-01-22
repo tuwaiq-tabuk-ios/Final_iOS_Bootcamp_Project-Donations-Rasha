@@ -60,7 +60,6 @@ class CategoryCollectionVC: UICollectionViewController, UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         CategoryCollectionVC.selectedCategory = CategoryCollectionVC.categories[indexPath.row].name
         self.tabBarController?.selectedIndex = 0
-      print("rasha sweet girl")
     }
    
 }

@@ -45,7 +45,6 @@
 		DA80932C2768FD600050F394 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80932B2768FD600050F394 /* SignUpVC.swift */; };
 		DA9549BE2773CA9300DBB418 /* itemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9549BD2773CA9300DBB418 /* itemDetailVC.swift */; };
 		DAA7140F27974F7B001A2762 /* FSUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7140E27974F7B001A2762 /* FSUserManager.swift */; };
-		DAA7141227974FB0001A2762 /* FSCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7141127974FB0001A2762 /* FSCollectionReference.swift */; };
 		DAD12606278473AA004C59DC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD12605278473AA004C59DC /* Item.swift */; };
 		DAD12608278473E6004C59DC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD12607278473E6004C59DC /* Message.swift */; };
 		DAD1260A27847430004C59DC /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1260927847430004C59DC /* ChatUser.swift */; };
@@ -53,6 +52,7 @@
 		DAD1260E27847482004C59DC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1260D27847482004C59DC /* Request.swift */; };
 		DAD8C48F2783962B00789175 /* FireError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8C48E2783962B00789175 /* FireError.swift */; };
 		DADC9E442775F39600147ADE /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADC9E432775F39600147ADE /* ChatVC.swift */; };
+		DAF708F8279B7DB0000792D4 /* FSCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF708F7279B7DB0000792D4 /* FSCollectionReference.swift */; };
 		DAF926BE2794CAA500585D33 /* XTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF926BD2794CAA500585D33 /* XTextField.swift */; };
 		DAF926C12794CE4100585D33 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF926C02794CE4100585D33 /* UIViewController+Ext.swift */; };
 		DAF926C32794CE7F00585D33 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF926C22794CE7F00585D33 /* UIView+Ext.swift */; };
@@ -129,7 +129,6 @@
 		DA80932B2768FD600050F394 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		DA9549BD2773CA9300DBB418 /* itemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemDetailVC.swift; sourceTree = "<group>"; };
 		DAA7140E27974F7B001A2762 /* FSUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUserManager.swift; sourceTree = "<group>"; };
-		DAA7141127974FB0001A2762 /* FSCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FSCollectionReference.swift; path = ../../../../../../../Desktop/FSCollectionReference.swift; sourceTree = "<group>"; };
 		DAD12605278473AA004C59DC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		DAD12607278473E6004C59DC /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		DAD1260927847430004C59DC /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 		DAD1260D27847482004C59DC /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		DAD8C48E2783962B00789175 /* FireError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireError.swift; sourceTree = "<group>"; };
 		DADC9E432775F39600147ADE /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		DAF708F7279B7DB0000792D4 /* FSCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCollectionReference.swift; sourceTree = "<group>"; };
 		DAF926BD2794CAA500585D33 /* XTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XTextField.swift; sourceTree = "<group>"; };
 		DAF926C02794CE4100585D33 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		DAF926C22794CE7F00585D33 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -297,18 +297,10 @@
 		DAA7140D27974F27001A2762 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				DAF708F6279B7D64000792D4 /* HelperManagers */,
 				DAA7140E27974F7B001A2762 /* FSUserManager.swift */,
-				DAA7141027974F82001A2762 /* Helper_Managers */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		DAA7141027974F82001A2762 /* Helper_Managers */ = {
-			isa = PBXGroup;
-			children = (
-				DAA7141127974FB0001A2762 /* FSCollectionReference.swift */,
-			);
-			path = Helper_Managers;
 			sourceTree = "<group>";
 		};
 		DACB31E62790300F00142D1D /* Cell */ = {
@@ -385,6 +377,14 @@
 				DA0F21AB278241CB00D744FB /* RequestDetailsVC.swift */,
 			);
 			name = RequestVC;
+			sourceTree = "<group>";
+		};
+		DAF708F6279B7D64000792D4 /* HelperManagers */ = {
+			isa = PBXGroup;
+			children = (
+				DAF708F7279B7DB0000792D4 /* FSCollectionReference.swift */,
+			);
+			name = HelperManagers;
 			sourceTree = "<group>";
 		};
 		DAF926BC2794CA8F00585D33 /* CustomViews */ = {
@@ -652,7 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAA7141227974FB0001A2762 /* FSCollectionReference.swift in Sources */,
+				DAF708F8279B7DB0000792D4 /* FSCollectionReference.swift in Sources */,
 				DAD8C48F2783962B00789175 /* FireError.swift in Sources */,
 				DA5A615A2781008E00B5A364 /* RequestsVC.swift in Sources */,
 				DAF926C12794CE4100585D33 /* UIViewController+Ext.swift in Sources */,

@@ -29,21 +29,17 @@ class CategoryCollectionVC: UICollectionViewController, UICollectionViewDelegate
         
         // Register cell classes
         self.collectionView!.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-        
-        // Do any additional setup after loading the view.
     }
     
     
     // MARK: UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return CategoryCollectionVC.categories.count
     }
     
@@ -65,5 +61,5 @@ class CategoryCollectionVC: UICollectionViewController, UICollectionViewDelegate
         CategoryCollectionVC.selectedCategory = CategoryCollectionVC.categories[indexPath.row].name
         self.tabBarController?.selectedIndex = 0
     }
-    
+   
 }

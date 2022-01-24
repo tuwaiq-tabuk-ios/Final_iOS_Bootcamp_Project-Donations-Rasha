@@ -24,22 +24,24 @@ The goods in the app are divided in several sections such as: Furniture, clothes
 
 
 ## User stories - Donator
-● Donators adds donations with the name of the good danated and if necessary sizes,  and image. 
+   - Donators adds donations with the name of the good danated and if necessary sizes,  and image. 
 
-● The image of the donation can be taken from a photo from tha app or from the gallery.
+   - The image of the donation can be taken from a photo from tha app or from the gallery.
 
-● When adding a donation, the app will fill the information about the location of the donator from its profile.
+   - When adding a donation, the app will fill the information about the location of the donator from its profile.
 
-● The donator can receive private chat messages and answer them.
+   - The donator can receive private chat messages and answer them.
 
 ## User stories - People in need
-● Can see a list of goods that are donated on his/her area by categories, like food, furnitures or clothes,
+   - Can see a list of goods that are donated on his/her area by categories, like food, furnitures or clothes,
 with basic information like the name of the good, the size (if there is any size), and a little image.
 
-● When one good is selected the user can see the details of the good like an amplified image. 
+   - When one good is selected the user can see the details of the good like an amplified image. 
 
-●  When one good is selected the user also can get in contact with the donator throgh a private chat.
+   - When one good is selected the user also can get in contact with the donator throgh a private chat.
 Photo##
+
+---
 
 https://user-images.githubusercontent.com/91871529/150333155-ec12638a-8baf-48cd-8a7e-8913439083a2.mp4
 

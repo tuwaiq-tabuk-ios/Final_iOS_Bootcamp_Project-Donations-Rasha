@@ -30,11 +30,8 @@ class FirError {
             default :
                 return " unknown error ".localize()
             }
-            
         }
-        
         return " unknown error ".localize()
-        
     }
 }
 

@@ -49,15 +49,20 @@ class SignInVC: UIViewController {
     if emailSuccess == true , passwordSuccess == true {
       
       // SignIn User To Firebase
-      FSUserManager.shared.signInUser(email: emailTextField.text!, password: passwordTextField.text!, errorLabel: errorLabel) {
-        // Go To MainVC
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
-        vc?.modalPresentationStyle = .fullScreen
-        vc?.modalTransitionStyle = .crossDissolve
-        DispatchQueue.main.async {
-          self.present(vc!, animated: true, completion: nil)
+      FSUserManager.shared.signInUser(email: emailTextField.text!, password: passwordTextField.text!) { [self] error in
+        if error == nil {
+          errorLabel.isHidden = true
+          let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
+          vc?.modalPresentationStyle = .fullScreen
+          vc?.modalTransitionStyle = .crossDissolve
+          DispatchQueue.main.async {
+            self.present(vc!, animated: true, completion: nil)
+          }
+        } else {
+          errorLabel.isHidden = false
+          errorLabel.text = FirError.Error(Code: error!._code)
         }
-      }
+      } 
     }
   }
   

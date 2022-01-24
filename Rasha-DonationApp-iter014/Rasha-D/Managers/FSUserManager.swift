@@ -12,10 +12,9 @@ class FSUserManager {
   
   static var shared = FSUserManager()
   
-  func signUpUser(email: String, password: String, name: String, errorLabel : UILabel, completion: @escaping ()->()) {
+  func signUpUser(email: String, password: String, name: String, completion: @escaping (Error?)->()) {
     Auth.auth().createUser(withEmail: email, password: password) { result, error in
       if error == nil {
-        errorLabel.isHidden = true
         guard let userID = result?.user.uid else {return}
         
         Firestore.firestore().collection(FSCollectionReference.users.rawValue).document(userID).setData([
@@ -24,26 +23,24 @@ class FSUserManager {
         ]) { error in
           
           // Go to mainVC
-          completion()
+          completion(nil)
         }
       } else{
-        errorLabel.isHidden = false
-        errorLabel.text = FirError.Error(Code: error!._code)
+        completion(error)
       }
     }
   }
   
   
-  func signInUser(email: String, password: String, errorLabel : UILabel, completion: @escaping ()->()) {
+  
+  func signInUser(email: String, password: String, completion: @escaping (Error?)->()) {
     Auth.auth().signIn(withEmail: email, password: password) { result, error in
         if error == nil {
-            errorLabel.isHidden = true
             //go to mainVC
-            completion()
+            completion(nil)
         } else {
             //handle error by show error massage
-            errorLabel.isHidden = false
-            errorLabel.text = FirError.Error(Code: error!._code)
+          completion(error)
         }
     }
   }

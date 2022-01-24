@@ -69,15 +69,22 @@ class SignUpVC: UIViewController {
       }
       
       // save user data to firebase
-      FSUserManager.shared.signUpUser(email: emailTextField.text!, password: passwordTextField.text!, name: nameTextField.text!, errorLabel: errorLabel) {
-        // go to MainVC
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
-        vc?.modalPresentationStyle = .fullScreen
-        vc?.modalTransitionStyle = .crossDissolve
-        DispatchQueue.main.async {
-          self.present(vc!, animated: true, completion: nil)
+      
+      FSUserManager.shared.signUpUser(email: emailTextField.text!, password: passwordTextField.text!, name: nameTextField.text!) { [self] error in
+        if error == nil {
+          // go to MainVC
+          let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarVC")
+          vc?.modalPresentationStyle = .fullScreen
+          vc?.modalTransitionStyle = .crossDissolve
+          DispatchQueue.main.async {
+            self.present(vc!, animated: true, completion: nil)
+          }
+        } else {
+          errorLabel.isHidden = false
+          errorLabel.text = FirError.Error(Code: error!._code)
         }
       }
+      
     }
   }
     
